@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    /* Configuración de lenguaje */
+    "target": "ES2022",                          // Versión de JavaScript de salida
+    "module": "commonjs",                        // Sistema de módulos
+    "lib": ["ES2022"],                           // Librerías de tipos incluidas
+    
+    /* Configuración de módulos */
+    "moduleResolution": "node",                  // Estrategia de resolución de módulos
+    "esModuleInterop": true,                     // Compatibilidad entre CommonJS y ES Modules
+    "allowSyntheticDefaultImports": true,        // Permite importaciones por defecto
+    "resolveJsonModule": true,                   // Permite importar archivos JSON
+    
+    /* Directorios */
+    "rootDir": "./src",                          // Directorio raíz del código fuente
+    "outDir": "./dist",                          // Directorio de salida compilado
+    
+    /* Verificaciones estrictas */
+    "strict": true,                              // Habilita todas las verificaciones estrictas
+    "noImplicitAny": true,                       // Error en expresiones con tipo 'any' implícito
+    "strictNullChecks": true,                    // Verificación estricta de null/undefined
+    "strictFunctionTypes": true,                 // Verificación estricta de tipos de función
+    "strictPropertyInitialization": true,        // Verificación estricta de inicialización de propiedades
+    "noUnusedLocals": true,                      // Error en variables locales no usadas
+    "noUnusedParameters": true,                  // Error en parámetros no usados
+    "noImplicitReturns": true,                   // Error cuando no todas las rutas retornan un valor
+    
+    /* Configuración adicional */
+    "skipLibCheck": true,                        // Omite verificación de archivos de declaración
+    "forceConsistentCasingInFileNames": true,    // Sensible a mayúsculas/minúsculas en nombres de archivos
+    "sourceMap": true,                           // Genera archivos .map para debugging
+    "removeComments": false,                     // Mantiene comentarios en el código compilado
+    "declaration": true,                         // Genera archivos de declaración .d.ts
+    "declarationMap": true                       // Genera mapas para archivos de declaración
+  },
+  "include": [
+    "src/**/*"                                   // Incluye todos los archivos TypeScript en src
+  ],
+  "exclude": [
+    "node_modules",                              // Excluye dependencias
+    "dist",                                      // Excluye archivos compilados
+    "**/*.spec.ts",                              // Excluye archivos de prueba
+    "**/*.test.ts"
+  ]
+}
+
