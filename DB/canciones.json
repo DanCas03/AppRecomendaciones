@@ -1,0 +1,3828 @@
+[
+    {
+        "titulo": "Like a Virgin",
+        "artista": "Madonna",
+        "año_publicacion": 1984,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Wake Me Up Before You Go-Go",
+        "artista": "Wham!",
+        "año_publicacion": 1984,
+        "genero": "Pop",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Girls Just Want to Have Fun",
+        "artista": "Cyndi Lauper",
+        "año_publicacion": 1983,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Careless Whisper",
+        "artista": "George Michael",
+        "año_publicacion": 1984,
+        "genero": "Pop",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "I Wanna Dance with Somebody",
+        "artista": "Whitney Houston",
+        "año_publicacion": 1987,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Take On Me",
+        "artista": "a-ha",
+        "año_publicacion": 1985,
+        "genero": "Pop",
+        "pais_origen": "Noruega"
+    },
+    {
+        "titulo": "Material Girl",
+        "artista": "Madonna",
+        "año_publicacion": 1984,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "The Power of Love",
+        "artista": "Huey Lewis and the News",
+        "año_publicacion": 1985,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Every Breath You Take",
+        "artista": "The Police",
+        "año_publicacion": 1983,
+        "genero": "Pop",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Don't Stop Believin'",
+        "artista": "Journey",
+        "año_publicacion": 1981,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Baby One More Time",
+        "artista": "Britney Spears",
+        "año_publicacion": 1998,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Vogue",
+        "artista": "Madonna",
+        "año_publicacion": 1990,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Wannabe",
+        "artista": "Spice Girls",
+        "año_publicacion": 1996,
+        "genero": "Pop",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Genie in a Bottle",
+        "artista": "Christina Aguilera",
+        "año_publicacion": 1999,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "I Want It That Way",
+        "artista": "Backstreet Boys",
+        "año_publicacion": 1999,
+        "genero": "Pop",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Torn",
+        "artista": "Natalie Imbruglia",
+        "año_publicacion": 1997,
+        "genero": "Pop",
+        "pais_origen": "Australia"
+    },
+    {
+        "artista": "The Weeknd",
+        "año_publicacion": 2020,
+        "genero": "Pop",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "Stay",
+        "artista": "The Kid LAROI & Justin Bieber",
+        "año_publicacion": 2021,
+        "genero": "Pop",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "Ghost",
+        "artista": "Justin Bieber",
+        "año_publicacion": 2021,
+        "genero": "Pop",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "Don't Start Now",
+        "artista": "Dua Lipa",
+        "año_publicacion": 2019,
+        "genero": "Pop",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Uptown Funk",
+        "artista": "Mark Ronson ft. Bruno Mars",
+        "año_publicacion": 2014,
+        "genero": "Pop",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Hey Jude",
+        "artista": "The Beatles",
+        "año_publicacion": 1968,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Paint It Black",
+        "artista": "The Rolling Stones",
+        "año_publicacion": 1966,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Purple Haze",
+        "artista": "Jimi Hendrix",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Light My Fire",
+        "artista": "The Doors",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Whole Lotta Love",
+        "artista": "Led Zeppelin",
+        "año_publicacion": 1969,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Born to Be Wild",
+        "artista": "Steppenwolf",
+        "año_publicacion": 1968,
+        "genero": "Rock",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "Gimme Shelter",
+        "artista": "The Rolling Stones",
+        "año_publicacion": 1969,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Sunshine of Your Love",
+        "artista": "Cream",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "With a Little Help from My Friends",
+        "artista": "The Beatles",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Space Oddity",
+        "artista": "David Bowie",
+        "año_publicacion": 1969,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Bohemian Rhapsody",
+        "artista": "Queen",
+        "año_publicacion": 1975,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Hotel California",
+        "artista": "Eagles",
+        "año_publicacion": 1976,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Stairway to Heaven",
+        "artista": "Led Zeppelin",
+        "año_publicacion": 1971,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Smoke on the Water",
+        "artista": "Deep Purple",
+        "año_publicacion": 1972,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Dream On",
+        "artista": "Aerosmith",
+        "año_publicacion": 1973,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Go Your Own Way",
+        "artista": "Fleetwood Mac",
+        "año_publicacion": 1977,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Highway to Hell",
+        "artista": "AC/DC",
+        "año_publicacion": 1979,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "London Calling",
+        "artista": "The Clash",
+        "año_publicacion": 1979,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "We Will Rock You",
+        "artista": "Queen",
+        "año_publicacion": 1977,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Another Brick in the Wall",
+        "artista": "Pink Floyd",
+        "año_publicacion": 1979,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Back in Black",
+        "artista": "AC/DC",
+        "año_publicacion": 1980,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "Sweet Child o' Mine",
+        "artista": "Guns N' Roses",
+        "año_publicacion": 1987,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Livin' on a Prayer",
+        "artista": "Bon Jovi",
+        "año_publicacion": 1986,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Jump",
+        "artista": "Van Halen",
+        "año_publicacion": 1984,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "With or Without You",
+        "artista": "U2",
+        "año_publicacion": 1987,
+        "genero": "Rock",
+        "pais_origen": "Irlanda"
+    },
+    {
+        "titulo": "Born in the U.S.A.",
+        "artista": "Bruce Springsteen",
+        "año_publicacion": 1984,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "You Give Love a Bad Name",
+        "artista": "Bon Jovi",
+        "año_publicacion": 1986,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Don't Stop Believin'",
+        "artista": "Journey",
+        "año_publicacion": 1981,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Eye of the Tiger",
+        "artista": "Survivor",
+        "año_publicacion": 1982,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Under Pressure",
+        "artista": "Queen & David Bowie",
+        "año_publicacion": 1981,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Smells Like Teen Spirit",
+        "artista": "Nirvana",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Creep",
+        "artista": "Radiohead",
+        "año_publicacion": 1992,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Wonderwall",
+        "artista": "Oasis",
+        "año_publicacion": 1995,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Black Hole Sun",
+        "artista": "Soundgarden",
+        "año_publicacion": 1994,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Losing My Religion",
+        "artista": "R.E.M.",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Basket Case",
+        "artista": "Green Day",
+        "año_publicacion": 1994,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Enter Sandman",
+        "artista": "Metallica",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Alive",
+        "artista": "Pearl Jam",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Killing in the Name",
+        "artista": "Rage Against the Machine",
+        "año_publicacion": 1992,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Californication",
+        "artista": "Red Hot Chili Peppers",
+        "año_publicacion": 1999,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Mr. Brightside",
+        "artista": "The Killers",
+        "año_publicacion": 2003,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Seven Nation Army",
+        "artista": "The White Stripes",
+        "año_publicacion": 2003,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "In the End",
+        "artista": "Linkin Park",
+        "año_publicacion": 2000,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Clocks",
+        "artista": "Coldplay",
+        "año_publicacion": 2002,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "The Scientist",
+        "artista": "Coldplay",
+        "año_publicacion": 2002,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "I Bet You Look Good on the Dancefloor",
+        "artista": "Arctic Monkeys",
+        "año_publicacion": 2005,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Take Me Out",
+        "artista": "Franz Ferdinand",
+        "año_publicacion": 2004,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Boulevard of Broken Dreams",
+        "artista": "Green Day",
+        "año_publicacion": 2004,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Use Somebody",
+        "artista": "Kings of Leon",
+        "año_publicacion": 2008,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Uprising",
+        "artista": "Muse",
+        "año_publicacion": 2009,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Radioactive",
+        "artista": "Imagine Dragons",
+        "año_publicacion": 2012,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Do I Wanna Know?",
+        "artista": "Arctic Monkeys",
+        "año_publicacion": 2013,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Stressed Out",
+        "artista": "Twenty One Pilots",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Believer",
+        "artista": "Imagine Dragons",
+        "año_publicacion": 2017,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "The Less I Know The Better",
+        "artista": "Tame Impala",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "Shallow",
+        "artista": "Lady Gaga & Bradley Cooper",
+        "año_publicacion": 2018,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Paradise",
+        "artista": "Coldplay",
+        "año_publicacion": 2011,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Somebody That I Used to Know",
+        "artista": "Gotye",
+        "año_publicacion": 2011,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "Adventure of a Lifetime",
+        "artista": "Coldplay",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Renegades",
+        "artista": "X Ambassadors",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Blinding Lights",
+        "artista": "The Weeknd",
+        "año_publicacion": 2020,
+        "genero": "Rock",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "Heat Waves",
+        "artista": "Glass Animals",
+        "año_publicacion": 2020,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Bad Habits",
+        "artista": "Ed Sheeran",
+        "año_publicacion": 2021,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Enemy",
+        "artista": "Imagine Dragons & JID",
+        "año_publicacion": 2021,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "As It Was",
+        "artista": "Harry Styles",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Running Up That Hill",
+        "artista": "Kate Bush",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Lost",
+        "artista": "Bring Me The Horizon",
+        "año_publicacion": 2023,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Vampire",
+        "artista": "Olivia Rodrigo",
+        "año_publicacion": 2023,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "The Loneliest",
+        "artista": "Måneskin",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Italia"
+    },
+    {
+        "titulo": "Unholy",
+        "artista": "Sam Smith & Kim Petras",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "El Negrito del Batey",
+        "artista": "Medardo Guzmán",
+        "año_publicacion": 1970,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Agarradera",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1972,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Caña Brava",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1978,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merenguero hasta la tambora",
+        "artista": "Joseíto Mateo",
+        "año_publicacion": 1975,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Compadre Pedro Juan",
+        "artista": "Luis Alberti",
+        "año_publicacion": 1974,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Ronco",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1976,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Mujer Que Yo Amo",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1979,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Tabaco",
+        "artista": "Joseíto Mateo",
+        "año_publicacion": 1977,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengón",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1978,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Empalizá",
+        "artista": "Joseíto Mateo",
+        "año_publicacion": 1973,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Africano",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1983,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Medicina",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1984,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Abusadora",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1985,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Jardinero",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1986,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Dueña del Swing",
+        "artista": "Los Hermanos Rosario",
+        "año_publicacion": 1989,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Me Tiene Chivo",
+        "artista": "Jossie Esteban y la Patrulla 15",
+        "año_publicacion": 1988,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Baile del Perrito",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1989,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Tanga",
+        "artista": "Kinito Méndez",
+        "año_publicacion": 1987,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Tiburón",
+        "artista": "Proyecto Uno",
+        "año_publicacion": 1989,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Ventanita",
+        "artista": "Sergio Vargas",
+        "año_publicacion": 1988,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Suavemente",
+        "artista": "Elvis Crespo",
+        "año_publicacion": 1998,
+        "genero": "Merengue",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Tu Sonrisa",
+        "artista": "Elvis Crespo",
+        "año_publicacion": 1999,
+        "genero": "Merengue",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "La Ventanita",
+        "artista": "Sergio Vargas",
+        "año_publicacion": 1992,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hombre Divertido",
+        "artista": "Toño Rosario",
+        "año_publicacion": 1995,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Kulikitaka",
+        "artista": "Toño Rosario",
+        "año_publicacion": 1997,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 1998,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 1999,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 1994,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Pimienta es la que Pica",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 1996,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hijo de Tuta",
+        "artista": "Omega",
+        "año_publicacion": 1999,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merengue Electrónico",
+        "artista": "Omega",
+        "año_publicacion": 2001,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Malvada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2002,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Llegó el Pavo",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2004,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Carnada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2006,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Cuchara",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2008,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengue",
+        "artista": "Marshmello & Manuel Turizo",
+        "año_publicacion": 2009,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos/Colombia"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2002,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2000,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2004,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Pimienta es la que Pica",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2006,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hijo de Tuta",
+        "artista": "Omega",
+        "año_publicacion": 2010,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merengue Electrónico",
+        "artista": "Omega",
+        "año_publicacion": 2012,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Malvada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2014,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Llegó el Pavo",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2016,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Carnada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2018,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Cuchara",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2019,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengue",
+        "artista": "Marshmello & Manuel Turizo",
+        "año_publicacion": 2017,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos/Colombia"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2015,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2013,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2018,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengue",
+        "artista": "Marshmello & Manuel Turizo",
+        "año_publicacion": 2023,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos/Colombia"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2022,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2021,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2020,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Pimienta es la que Pica",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2021,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hijo de Tuta",
+        "artista": "Omega",
+        "año_publicacion": 2022,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merengue Electrónico",
+        "artista": "Omega",
+        "año_publicacion": 2023,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Malvada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2023,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Llegó el Pavo",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2022,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Carnada", 
+        "artista": "Miriam Cruz", 
+        "año_publicacion": 2021, 
+        "genero": "Merengue", 
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Hey Jude", 
+        "artista": "The Beatles", 
+        "año_publicacion": 1968, 
+        "genero": "Rock", 
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Paint It Black",
+        "artista": "The Rolling Stones",
+        "año_publicacion": 1966,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Purple Haze",
+        "artista": "Jimi Hendrix",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Light My Fire",
+        "artista": "The Doors",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Whole Lotta Love",
+        "artista": "Led Zeppelin",
+        "año_publicacion": 1969,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Born to Be Wild",
+        "artista": "Steppenwolf",
+        "año_publicacion": 1968,
+        "genero": "Rock",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "Gimme Shelter",
+        "artista": "The Rolling Stones",
+        "año_publicacion": 1969,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Sunshine of Your Love",
+        "artista": "Cream",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "With a Little Help from My Friends",
+        "artista": "The Beatles",
+        "año_publicacion": 1967,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Space Oddity",
+        "artista": "David Bowie",
+        "año_publicacion": 1969,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Bohemian Rhapsody",
+        "artista": "Queen",
+        "año_publicacion": 1975,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Hotel California",
+        "artista": "Eagles",
+        "año_publicacion": 1976,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Stairway to Heaven",
+        "artista": "Led Zeppelin",
+        "año_publicacion": 1971,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Smoke on the Water",
+        "artista": "Deep Purple",
+        "año_publicacion": 1972,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Dream On",
+        "artista": "Aerosmith",
+        "año_publicacion": 1973,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Go Your Own Way",
+        "artista": "Fleetwood Mac",
+        "año_publicacion": 1977,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Highway to Hell",
+        "artista": "AC/DC",
+        "año_publicacion": 1979,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "London Calling",
+        "artista": "The Clash",
+        "año_publicacion": 1979,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "We Will Rock You",
+        "artista": "Queen",
+        "año_publicacion": 1977,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Another Brick in the Wall",
+        "artista": "Pink Floyd",
+        "año_publicacion": 1979,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Back in Black",
+        "artista": "AC/DC",
+        "año_publicacion": 1980,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "Sweet Child o' Mine",
+        "artista": "Guns N' Roses",
+        "año_publicacion": 1987,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Livin' on a Prayer",
+        "artista": "Bon Jovi",
+        "año_publicacion": 1986,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Jump",
+        "artista": "Van Halen",
+        "año_publicacion": 1984,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "With or Without You",
+        "artista": "U2",
+        "año_publicacion": 1987,
+        "genero": "Rock",
+        "pais_origen": "Irlanda"
+    },
+    {
+        "titulo": "Born in the U.S.A.",
+        "artista": "Bruce Springsteen",
+        "año_publicacion": 1984,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "You Give Love a Bad Name",
+        "artista": "Bon Jovi",
+        "año_publicacion": 1986,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Don't Stop Believin'",
+        "artista": "Journey",
+        "año_publicacion": 1981,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Eye of the Tiger",
+        "artista": "Survivor",
+        "año_publicacion": 1982,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Under Pressure",
+        "artista": "Queen & David Bowie",
+        "año_publicacion": 1981,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Smells Like Teen Spirit",
+        "artista": "Nirvana",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Creep",
+        "artista": "Radiohead",
+        "año_publicacion": 1992,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Wonderwall",
+        "artista": "Oasis",
+        "año_publicacion": 1995,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Black Hole Sun",
+        "artista": "Soundgarden",
+        "año_publicacion": 1994,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Losing My Religion",
+        "artista": "R.E.M.",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Basket Case",
+        "artista": "Green Day",
+        "año_publicacion": 1994,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Enter Sandman",
+        "artista": "Metallica",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Alive",
+        "artista": "Pearl Jam",
+        "año_publicacion": 1991,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Killing in the Name",
+        "artista": "Rage Against the Machine",
+        "año_publicacion": 1992,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Californication",
+        "artista": "Red Hot Chili Peppers",
+        "año_publicacion": 1999,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Mr. Brightside",
+        "artista": "The Killers",
+        "año_publicacion": 2003,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Seven Nation Army",
+        "artista": "The White Stripes",
+        "año_publicacion": 2003,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "In the End",
+        "artista": "Linkin Park",
+        "año_publicacion": 2000,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Clocks",
+        "artista": "Coldplay",
+        "año_publicacion": 2002,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "The Scientist",
+        "artista": "Coldplay",
+        "año_publicacion": 2002,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "I Bet You Look Good on the Dancefloor",
+        "artista": "Arctic Monkeys",
+        "año_publicacion": 2005,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Take Me Out",
+        "artista": "Franz Ferdinand",
+        "año_publicacion": 2004,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Boulevard of Broken Dreams",
+        "artista": "Green Day",
+        "año_publicacion": 2004,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Use Somebody",
+        "artista": "Kings of Leon",
+        "año_publicacion": 2008,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Uprising",
+        "artista": "Muse",
+        "año_publicacion": 2009,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Radioactive",
+        "artista": "Imagine Dragons",
+        "año_publicacion": 2012,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Do I Wanna Know?",
+        "artista": "Arctic Monkeys",
+        "año_publicacion": 2013,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Stressed Out",
+        "artista": "Twenty One Pilots",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Believer",
+        "artista": "Imagine Dragons",
+        "año_publicacion": 2017,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "The Less I Know The Better",
+        "artista": "Tame Impala",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "Shallow",
+        "artista": "Lady Gaga & Bradley Cooper",
+        "año_publicacion": 2018,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Paradise",
+        "artista": "Coldplay",
+        "año_publicacion": 2011,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Somebody That I Used to Know",
+        "artista": "Gotye",
+        "año_publicacion": 2011,
+        "genero": "Rock",
+        "pais_origen": "Australia"
+    },
+    {
+        "titulo": "Adventure of a Lifetime",
+        "artista": "Coldplay",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Renegades",
+        "artista": "X Ambassadors",
+        "año_publicacion": 2015,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Blinding Lights",
+        "artista": "The Weeknd",
+        "año_publicacion": 2020,
+        "genero": "Rock",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "Heat Waves",
+        "artista": "Glass Animals",
+        "año_publicacion": 2020,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Bad Habits",
+        "artista": "Ed Sheeran",
+        "año_publicacion": 2021,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Enemy",
+        "artista": "Imagine Dragons & JID",
+        "año_publicacion": 2021,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "As It Was",
+        "artista": "Harry Styles",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Running Up That Hill",
+        "artista": "Kate Bush",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Lost",
+        "artista": "Bring Me The Horizon",
+        "año_publicacion": 2023,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Vampire",
+        "artista": "Olivia Rodrigo",
+        "año_publicacion": 2023,
+        "genero": "Rock",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "The Loneliest",
+        "artista": "Måneskin",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Italia"
+    },
+    {
+        "titulo": "Unholy",
+        "artista": "Sam Smith & Kim Petras",
+        "año_publicacion": 2022,
+        "genero": "Rock",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "El Negrito del Batey",
+        "artista": "Medardo Guzmán",
+        "año_publicacion": 1970,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Agarradera",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1972,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Caña Brava",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1978,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merenguero hasta la tambora",
+        "artista": "Joseíto Mateo",
+        "año_publicacion": 1975,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Compadre Pedro Juan",
+        "artista": "Luis Alberti",
+        "año_publicacion": 1974,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Ronco",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1976,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Mujer Que Yo Amo",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1979,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Tabaco",
+        "artista": "Joseíto Mateo",
+        "año_publicacion": 1977,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengón",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1978,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Empalizá",
+        "artista": "Joseíto Mateo",
+        "año_publicacion": 1973,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Africano",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1983,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Medicina",
+        "artista": "Johnny Ventura",
+        "año_publicacion": 1984,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Abusadora",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1985,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Jardinero",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1986,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Dueña del Swing",
+        "artista": "Los Hermanos Rosario",
+        "año_publicacion": 1989,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Me Tiene Chivo",
+        "artista": "Jossie Esteban y la Patrulla 15",
+        "año_publicacion": 1988,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Baile del Perrito",
+        "artista": "Wilfrido Vargas",
+        "año_publicacion": 1989,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Tanga",
+        "artista": "Kinito Méndez",
+        "año_publicacion": 1987,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Tiburón",
+        "artista": "Proyecto Uno",
+        "año_publicacion": 1989,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Ventanita",
+        "artista": "Sergio Vargas",
+        "año_publicacion": 1988,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Suavemente",
+        "artista": "Elvis Crespo",
+        "año_publicacion": 1998,
+        "genero": "Merengue",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Tu Sonrisa",
+        "artista": "Elvis Crespo",
+        "año_publicacion": 1999,
+        "genero": "Merengue",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "La Ventanita",
+        "artista": "Sergio Vargas",
+        "año_publicacion": 1992,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hombre Divertido",
+        "artista": "Toño Rosario",
+        "año_publicacion": 1995,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Kulikitaka",
+        "artista": "Toño Rosario",
+        "año_publicacion": 1997,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 1998,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 1999,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 1994,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Pimienta es la que Pica",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 1996,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hijo de Tuta",
+        "artista": "Omega",
+        "año_publicacion": 1999,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merengue Electrónico",
+        "artista": "Omega",
+        "año_publicacion": 2001,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Malvada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2002,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Llegó el Pavo",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2004,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Carnada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2006,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Cuchara",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2008,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengue",
+        "artista": "Marshmello & Manuel Turizo",
+        "año_publicacion": 2009,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos/Colombia"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2002,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2000,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2004,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Pimienta es la que Pica",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2006,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hijo de Tuta",
+        "artista": "Omega",
+        "año_publicacion": 2010,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merengue Electrónico",
+        "artista": "Omega",
+        "año_publicacion": 2012,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Malvada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2014,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Llegó el Pavo",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2016,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Carnada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2018,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Cuchara",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2019,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengue",
+        "artista": "Marshmello & Manuel Turizo",
+        "año_publicacion": 2017,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos/Colombia"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2015,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2013,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2018,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Merengue",
+        "artista": "Marshmello & Manuel Turizo",
+        "año_publicacion": 2023,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos/Colombia"
+    },
+    {
+        "titulo": "La Cadera",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2022,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "El Baile del Beeper",
+        "artista": "Oro Sólido",
+        "año_publicacion": 2021,
+        "genero": "Merengue",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Chiflera",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2020,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Pimienta es la que Pica",
+        "artista": "Fefita La Grande",
+        "año_publicacion": 2021,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "El Hijo de Tuta",
+        "artista": "Omega",
+        "año_publicacion": 2022,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Merengue Electrónico",
+        "artista": "Omega",
+        "año_publicacion": 2023,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Malvada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2023,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "Llegó el Pavo",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2022,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    {
+        "titulo": "La Carnada",
+        "artista": "Miriam Cruz",
+        "año_publicacion": 2021,
+        "genero": "Merengue",
+        "pais_origen": "República Dominicana"
+    },
+    
+    {
+        "titulo": "Plastic Love",
+        "artista": "Mariya Takeuchi",
+        "año_publicacion": 1984,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Linda Linda",
+        "artista": "The Blue Hearts",
+        "año_publicacion": 1987,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "My Revolution",
+        "artista": "Misato Watanabe",
+        "año_publicacion": 1986,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Runner",
+        "artista": "Bakufu Slump",
+        "año_publicacion": 1988,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Koi no Jam",
+        "artista": "Yoko Oginome",
+        "año_publicacion": 1985,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "CHA-CHA-CHA",
+        "artista": "Ishino Yoko",
+        "año_publicacion": 1986,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Valentine Kiss",
+        "artista": "Sayuri Kokushō",
+        "año_publicacion": 1986,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Dancing Hero (Eat You Up)",
+        "artista": "Yoko Oginome",
+        "año_publicacion": 1985,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Sotsugyō",
+        "artista": "Yuki Saito",
+        "año_publicacion": 1985,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Glass no Jumon",
+        "artista": "Akina Nakamori",
+        "año_publicacion": 1984,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    
+    {
+        "titulo": "Can You Celebrate?",
+        "artista": "Namie Amuro",
+        "año_publicacion": 1997,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Love Machine",
+        "artista": "Morning Musume",
+        "año_publicacion": 1999,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "First Love",
+        "artista": "Hikaru Utada",
+        "año_publicacion": 1999,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Automatic",
+        "artista": "Hikaru Utada",
+        "año_publicacion": 1998,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "White Love",
+        "artista": "SPEED",
+        "año_publicacion": 1997,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "DEPARTURES",
+        "artista": "globe",
+        "año_publicacion": 1996,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Feel My Heart",
+        "artista": "Every Little Thing",
+        "año_publicacion": 1996,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "TRUE LOVE",
+        "artista": "Fumiya Fujii",
+        "año_publicacion": 1993,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Kiseki",
+        "artista": "GReeeeN",
+        "año_publicacion": 1999,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Aoi Usagi",
+        "artista": "Noriko Sakai",
+        "año_publicacion": 1995,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    
+    {
+        "titulo": "Sakura",
+        "artista": "Ikimono Gakari",
+        "año_publicacion": 2006,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Blue Bird",
+        "artista": "Ikimono Gakari",
+        "año_publicacion": 2008,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Flavor Of Life",
+        "artista": "Hikaru Utada",
+        "año_publicacion": 2007,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Hikari",
+        "artista": "Hikaru Utada",
+        "año_publicacion": 2002,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Shining One",
+        "artista": "BE:FIRST",
+        "año_publicacion": 2009,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Seishun Amigo",
+        "artista": "Shūji to Akira",
+        "año_publicacion": 2005,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Secret Base ~Kimi ga Kureta Mono~",
+        "artista": "ZONE",
+        "año_publicacion": 2001,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Soko ni Iru ne",
+        "artista": "Thelma Aoyama feat. SoulJa",
+        "año_publicacion": 2008,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Koi",
+        "artista": "Gen Hoshino",
+        "año_publicacion": 2009,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Sakurairo Maukoro",
+        "artista": "Mika Nakashima",
+        "año_publicacion": 2005,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    
+    {
+        "titulo": "Heavy Rotation",
+        "artista": "AKB48",
+        "año_publicacion": 2010,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Pretender",
+        "artista": "Official HIGE DANDism",
+        "año_publicacion": 2019,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Lemon",
+        "artista": "Kenshi Yonezu",
+        "año_publicacion": 2018,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Paprika",
+        "artista": "Foorin",
+        "año_publicacion": 2018,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "TT -Japanese ver.-",
+        "artista": "TWICE",
+        "año_publicacion": 2017,
+        "genero": "J-Pop",
+        "pais_origen": "Japón/Corea del Sur"
+    },
+    {
+        "titulo": "Shinunoga E-Wa",
+        "artista": "Fujii Kaze",
+        "año_publicacion": 2019,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "U.S.A.",
+        "artista": "DA PUMP",
+        "año_publicacion": 2018,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Koi",
+        "artista": "Gen Hoshino",
+        "año_publicacion": 2016,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "R.Y.U.S.E.I.",
+        "artista": "Sandaime J Soul Brothers",
+        "año_publicacion": 2014,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Zenzenzense",
+        "artista": "RADWIMPS",
+        "año_publicacion": 2016,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    
+    {
+        "titulo": "Kaikai Kitan",
+        "artista": "Eve",
+        "año_publicacion": 2020,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Yoru ni Kakeru",
+        "artista": "YOASOBI",
+        "año_publicacion": 2020,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Dry Flower",
+        "artista": "Yuuri",
+        "año_publicacion": 2020,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Shinunoga E-Wa",
+        "artista": "Fujii Kaze",
+        "año_publicacion": 2022,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Tabun",
+        "artista": "YOASOBI",
+        "año_publicacion": 2021,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Usseewa",
+        "artista": "Ado",
+        "año_publicacion": 2021,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Shirogane",
+        "artista": "Mabodofu",
+        "año_publicacion": 2021,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Mela!",
+        "artista": "Ryokuoushoku Shakai",
+        "año_publicacion": 2020,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "CITRUS",
+        "artista": "Da-iCE",
+        "año_publicacion": 2020,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "KICK BACK",
+        "artista": "Kenshi Yonezu",
+        "año_publicacion": 2022,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Shukumei",
+        "artista": "Official HIGE DANDism",
+        "año_publicacion": 2022,
+        "genero": "J-Pop",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Haru Haru",
+        "artista": "BIGBANG",
+        "año_publicacion": 2008,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Gee",
+        "artista": "Girls' Generation",
+        "año_publicacion": 2009,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Sorry, Sorry",
+        "artista": "Super Junior",
+        "año_publicacion": 2009,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Mirotic",
+        "artista": "TVXQ",
+        "año_publicacion": 2008,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Lies",
+        "artista": "BIGBANG",
+        "año_publicacion": 2007,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Tell Me",
+        "artista": "Wonder Girls",
+        "año_publicacion": 2007,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "U-Go-Girl",
+        "artista": "Lee Hyori",
+        "año_publicacion": 2008,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Hot Issue",
+        "artista": "4Minute",
+        "año_publicacion": 2009,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Abracadabra",
+        "artista": "Brown Eyed Girls",
+        "año_publicacion": 2009,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Fire",
+        "artista": "2NE1",
+        "año_publicacion": 2009,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Fantastic Baby",
+        "artista": "BIGBANG",
+        "año_publicacion": 2012,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Gangnam Style",
+        "artista": "PSY",
+        "año_publicacion": 2012,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "I Am the Best",
+        "artista": "2NE1",
+        "año_publicacion": 2011,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Growl",
+        "artista": "EXO",
+        "año_publicacion": 2013,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Like OOH-AHH",
+        "artista": "TWICE",
+        "año_publicacion": 2015,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Cheer Up",
+        "artista": "TWICE",
+        "año_publicacion": 2016,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Ddu-Du Ddu-Du",
+        "artista": "BLACKPINK",
+        "año_publicacion": 2018,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Love Scenario",
+        "artista": "iKON",
+        "año_publicacion": 2018,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Boy With Luv",
+        "artista": "BTS feat. Halsey",
+        "año_publicacion": 2019,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur/Estados Unidos"
+    },
+    {
+        "titulo": "Dynamite",
+        "artista": "BTS",
+        "año_publicacion": 2020,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Next Level",
+        "artista": "aespa",
+        "año_publicacion": 2021,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Butter",
+        "artista": "BTS",
+        "año_publicacion": 2021,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Lovesick Girls",
+        "artista": "BLACKPINK",
+        "año_publicacion": 2020,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Permission to Dance",
+        "artista": "BTS",
+        "año_publicacion": 2021,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Tomboy",
+        "artista": "(G)I-DLE",
+        "año_publicacion": 2022,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Hype Boy",
+        "artista": "NewJeans",
+        "año_publicacion": 2022,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Cupid",
+        "artista": "FIFTY FIFTY",
+        "año_publicacion": 2023,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Super Shy",
+        "artista": "NewJeans",
+        "año_publicacion": 2023,
+        "genero": "K-Pop",
+        "pais_origen": "Corea del Sur"
+    },
+    {
+        "titulo": "Born to Be Wild",
+        "artista": "Steppenwolf",
+        "año_publicacion": 1968,
+        "genero": "Metal",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "Helter Skelter",
+        "artista": "The Beatles",
+        "año_publicacion": 1968,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "In-A-Gadda-Da-Vida",
+        "artista": "Iron Butterfly",
+        "año_publicacion": 1968,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Summertime Blues",
+        "artista": "Blue Cheer",
+        "año_publicacion": 1968,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Communication Breakdown",
+        "artista": "Led Zeppelin",
+        "año_publicacion": 1969,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "21st Century Schizoid Man",
+        "artista": "King Crimson",
+        "año_publicacion": 1969,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Fire",
+        "artista": "The Crazy World of Arthur Brown",
+        "año_publicacion": 1968,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Hush",
+        "artista": "Deep Purple",
+        "año_publicacion": 1968,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "You Really Got Me",
+        "artista": "The Kinks",
+        "año_publicacion": 1964,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Paranoid",
+        "artista": "Black Sabbath",
+        "año_publicacion": 1970,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Iron Man",
+        "artista": "Black Sabbath",
+        "año_publicacion": 1970,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Smoke on the Water",
+        "artista": "Deep Purple",
+        "año_publicacion": 1972,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Highway Star",
+        "artista": "Deep Purple",
+        "año_publicacion": 1972,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Children of the Grave",
+        "artista": "Black Sabbath",
+        "año_publicacion": 1971,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Breaking the Law",
+        "artista": "Judas Priest",
+        "año_publicacion": 1980,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Ace of Spades",
+        "artista": "Motörhead",
+        "año_publicacion": 1980,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "The Number of the Beast",
+        "artista": "Iron Maiden",
+        "año_publicacion": 1982,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Master of Puppets",
+        "artista": "Metallica",
+        "año_publicacion": 1986,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Holy Wars... The Punishment Due",
+        "artista": "Megadeth",
+        "año_publicacion": 1990,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Painkiller",
+        "artista": "Judas Priest",
+        "año_publicacion": 1990,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Enter Sandman",
+        "artista": "Metallica",
+        "año_publicacion": 1991,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Roots Bloody Roots",
+        "artista": "Sepultura",
+        "año_publicacion": 1996,
+        "genero": "Metal",
+        "pais_origen": "Brasil"
+    },
+    {
+        "titulo": "Fear of the Dark",
+        "artista": "Iron Maiden",
+        "año_publicacion": 1992,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Blackwater Park",
+        "artista": "Opeth",
+        "año_publicacion": 2001,
+        "genero": "Metal",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "Chop Suey!",
+        "artista": "System of a Down",
+        "año_publicacion": 2001,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Duality",
+        "artista": "Slipknot",
+        "año_publicacion": 2004,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Laid to Rest",
+        "artista": "Lamb of God",
+        "año_publicacion": 2004,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "The Trooper",
+        "artista": "Iron Maiden",
+        "año_publicacion": 2003,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Oblivion",
+        "artista": "Mastodon",
+        "año_publicacion": 2009,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Redneck",
+        "artista": "Lamb of God",
+        "año_publicacion": 2006,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Ghost Walking",
+        "artista": "Lamb of God",
+        "año_publicacion": 2012,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Painkiller",
+        "artista": "Judas Priest",
+        "año_publicacion": 2014,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "The Stage",
+        "artista": "Avenged Sevenfold",
+        "año_publicacion": 2016,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Dystopia",
+        "artista": "Megadeth",
+        "año_publicacion": 2016,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Memento Mori",
+        "artista": "Lamb of God",
+        "año_publicacion": 2020,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Blood Eagle",
+        "artista": "Periphery",
+        "año_publicacion": 2019,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Holy Hell",
+        "artista": "Architects",
+        "año_publicacion": 2018,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Spiritbox",
+        "artista": "Holy Roller",
+        "año_publicacion": 2020,
+        "genero": "Metal",
+        "pais_origen": "Canadá"
+    },
+    {
+        "titulo": "The Writing on the Wall",
+        "artista": "Iron Maiden",
+        "año_publicacion": 2021,
+        "genero": "Metal",
+        "pais_origen": "Reino Unido"
+    },
+    {
+        "titulo": "Judgement & Punishment",
+        "artista": "Jinjer",
+        "año_publicacion": 2019,
+        "genero": "Metal",
+        "pais_origen": "Ucrania"
+    },
+    {
+        "titulo": "Unsainted",
+        "artista": "Slipknot",
+        "año_publicacion": 2019,
+        "genero": "Metal",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Pedro Navaja",
+        "artista": "Rubén Blades",
+        "año_publicacion": 1978,
+        "genero": "Salsa",
+        "pais_origen": "Panamá"
+    },
+    {
+        "titulo": "El Cantante",
+        "artista": "Héctor Lavoe",
+        "año_publicacion": 1978,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Plástico",
+        "artista": "Rubén Blades y Willie Colón",
+        "año_publicacion": 1978,
+        "genero": "Salsa",
+        "pais_origen": "Panamá/Estados Unidos"
+    },
+    {
+        "titulo": "Periódico de Ayer",
+        "artista": "Héctor Lavoe",
+        "año_publicacion": 1976,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Che Che Colé",
+        "artista": "Willie Colón",
+        "año_publicacion": 1970,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Anacaona",
+        "artista": "Cheo Feliciano",
+        "año_publicacion": 1971,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Mi Gente",
+        "artista": "Héctor Lavoe",
+        "año_publicacion": 1973,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Juanito Alimaña",
+        "artista": "Willie Colón",
+        "año_publicacion": 1979,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Llorarás",
+        "artista": "Oscar D'León",
+        "año_publicacion": 1975,
+        "genero": "Salsa",
+        "pais_origen": "Venezuela"
+    },
+    {
+        "titulo": "El Gran Varón",
+        "artista": "Willie Colón",
+        "año_publicacion": 1989,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Ven Devórame Otra Vez",
+        "artista": "Lalo Rodríguez",
+        "año_publicacion": 1988,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Idilio",
+        "artista": "Willie Colón",
+        "año_publicacion": 1983,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Aquel Lugar",
+        "artista": "Oscar D'León",
+        "año_publicacion": 1982,
+        "genero": "Salsa",
+        "pais_origen": "Venezuela"
+    },
+    {
+        "titulo": "Rebelión",
+        "artista": "Joe Arroyo",
+        "año_publicacion": 1986,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "Devórame Otra Vez",
+        "artista": "Lalo Rodríguez",
+        "año_publicacion": 1987,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Cali Pachanguero",
+        "artista": "Grupo Niche",
+        "año_publicacion": 1984,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "Timbalero",
+        "artista": "El Gran Combo de Puerto Rico",
+        "año_publicacion": 1982,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Me Volvieron a Hablar de Ella",
+        "artista": "Gilberto Santa Rosa",
+        "año_publicacion": 1986,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Que Manera de Quererte",
+        "artista": "Gilberto Santa Rosa",
+        "año_publicacion": 1990,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Vivir Lo Nuestro",
+        "artista": "Marc Anthony & La India",
+        "año_publicacion": 1994,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos/Puerto Rico"
+    },
+    {
+        "titulo": "Te Conozco Bien",
+        "artista": "Marc Anthony",
+        "año_publicacion": 1995,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "A Puro Dolor",
+        "artista": "Son by Four",
+        "año_publicacion": 1999,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Conteo Regresivo",
+        "artista": "Gilberto Santa Rosa",
+        "año_publicacion": 2006,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Valió la Pena",
+        "artista": "Marc Anthony",
+        "año_publicacion": 2004,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Que Precio Tiene el Cielo",
+        "artista": "Marc Anthony",
+        "año_publicacion": 2004,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Vida es un Carnaval",
+        "artista": "Celia Cruz",
+        "año_publicacion": 1998,
+        "genero": "Salsa",
+        "pais_origen": "Cuba"
+    },
+    {
+        "titulo": "Veneno",
+        "artista": "Grupo Niche",
+        "año_publicacion": 2002,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "La Rebelión",
+        "artista": "Joe Arroyo",
+        "año_publicacion": 2001,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "La Gota Fría",
+        "artista": "Carlos Vives",
+        "año_publicacion": 1993,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "Bailar Contigo",
+        "artista": "Carlos Vives",
+        "año_publicacion": 2013,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "Vivir Mi Vida",
+        "artista": "Marc Anthony",
+        "año_publicacion": 2013,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "La Salsa Vive",
+        "artista": "Tito Nieves",
+        "año_publicacion": 2012,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Bajo la Tormenta",
+        "artista": "Sergio George & All Stars",
+        "año_publicacion": 2013,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos/Puerto Rico"
+    },
+    {
+        "titulo": "La Mujer Que Bota Fuego",
+        "artista": "Grupo Niche",
+        "año_publicacion": 2015,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "La Perla",
+        "artista": "Calle 13 & Rubén Blades",
+        "año_publicacion": 2009,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico/Panamá"
+    },
+    {
+        "titulo": "Salsa y Control",
+        "artista": "Fruko y sus Tesos",
+        "año_publicacion": 2017,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "La Salsa de Hoy",
+        "artista": "Victor Manuelle",
+        "año_publicacion": 2020,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Cali Ají",
+        "artista": "Grupo Niche",
+        "año_publicacion": 2020,
+        "genero": "Salsa",
+        "pais_origen": "Colombia"
+    },
+    {
+        "titulo": "Pa' Los Rumberos",
+        "artista": "El Gran Combo de Puerto Rico",
+        "año_publicacion": 2021,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "Quiero Salsa",
+        "artista": "Victor Manuelle",
+        "año_publicacion": 2022,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "La Vida Continuó",
+        "artista": "Gilberto Santa Rosa",
+        "año_publicacion": 2022,
+        "genero": "Salsa",
+        "pais_origen": "Puerto Rico"
+    },
+    {
+        "titulo": "El Amor Más Grande del Planeta",
+        "artista": "Marc Anthony",
+        "año_publicacion": 2022,
+        "genero": "Salsa",
+        "pais_origen": "Estados Unidos"
+    },
+    {
+        "titulo": "Sinfonía No. 5",
+        "artista": "Ludwig van Beethoven",
+        "año_publicacion": 1808,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 9",
+        "artista": "Ludwig van Beethoven",
+        "año_publicacion": 1824,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Canon en Re mayor",
+        "artista": "Johann Pachelbel",
+        "año_publicacion": 1680,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto de Aranjuez",
+        "artista": "Joaquín Rodrigo",
+        "año_publicacion": 1939,
+        "genero": "Clásica",
+        "pais_origen": "España"
+    },
+    {
+        "titulo": "Clair de Lune",
+        "artista": "Claude Debussy",
+        "año_publicacion": 1905,
+        "genero": "Clásica",
+        "pais_origen": "Francia"
+    },
+    {
+        "titulo": "El lago de los cisnes",
+        "artista": "Piotr Ilich Tchaikovsky",
+        "año_publicacion": 1876,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "La Primavera (Las Cuatro Estaciones)",
+        "artista": "Antonio Vivaldi",
+        "año_publicacion": 1725,
+        "genero": "Clásica",
+        "pais_origen": "Italia"
+    },
+    {
+        "titulo": "Marcha Nupcial",
+        "artista": "Felix Mendelssohn",
+        "año_publicacion": 1842,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Ave Maria",
+        "artista": "Franz Schubert",
+        "año_publicacion": 1825,
+        "genero": "Clásica",
+        "pais_origen": "Austria"
+    },
+    {
+        "titulo": "Pequeña serenata nocturna",
+        "artista": "Wolfgang Amadeus Mozart",
+        "año_publicacion": 1787,
+        "genero": "Clásica",
+        "pais_origen": "Austria"
+    },
+    {
+        "titulo": "Sinfonía No. 40",
+        "artista": "Wolfgang Amadeus Mozart",
+        "año_publicacion": 1788,
+        "genero": "Clásica",
+        "pais_origen": "Austria"
+    },
+    {
+        "titulo": "Bolero",
+        "artista": "Maurice Ravel",
+        "año_publicacion": 1928,
+        "genero": "Clásica",
+        "pais_origen": "Francia"
+    },
+    {
+        "titulo": "Obertura 1812",
+        "artista": "Piotr Ilich Tchaikovsky",
+        "año_publicacion": 1880,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Concierto para piano No. 1",
+        "artista": "Frédéric Chopin",
+        "año_publicacion": 1830,
+        "genero": "Clásica",
+        "pais_origen": "Polonia"
+    },
+    {
+        "titulo": "Sinfonía No. 6 'Patética'",
+        "artista": "Piotr Ilich Tchaikovsky",
+        "año_publicacion": 1893,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Concierto para violín en Re mayor",
+        "artista": "Ludwig van Beethoven",
+        "año_publicacion": 1806,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 3 'Heroica'",
+        "artista": "Ludwig van Beethoven",
+        "año_publicacion": 1804,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto para piano No. 21",
+        "artista": "Wolfgang Amadeus Mozart",
+        "año_publicacion": 1785,
+        "genero": "Clásica",
+        "pais_origen": "Austria"
+    },
+    {
+        "titulo": "Sinfonía No. 7",
+        "artista": "Ludwig van Beethoven",
+        "año_publicacion": 1812,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto para violín en Mi menor",
+        "artista": "Felix Mendelssohn",
+        "año_publicacion": 1844,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 41 'Júpiter'",
+        "artista": "Wolfgang Amadeus Mozart",
+        "año_publicacion": 1788,
+        "genero": "Clásica",
+        "pais_origen": "Austria"
+    },
+    {
+        "titulo": "Concierto para piano No. 2",
+        "artista": "Sergei Rachmaninoff",
+        "año_publicacion": 1901,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Sinfonía No. 1",
+        "artista": "Johannes Brahms",
+        "año_publicacion": 1876,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto para violín en Re mayor",
+        "artista": "Pyotr Ilyich Tchaikovsky",
+        "año_publicacion": 1878,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Sinfonía No. 8",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1889,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para piano No. 5 'Emperador'",
+        "artista": "Ludwig van Beethoven",
+        "año_publicacion": 1809,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 2",
+        "artista": "Johannes Brahms",
+        "año_publicacion": 1877,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto para violonchelo en Si menor",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1895,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Sinfonía No. 4",
+        "artista": "Johannes Brahms",
+        "año_publicacion": 1885,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto para piano No. 3",
+        "artista": "Sergei Rachmaninoff",
+        "año_publicacion": 1909,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Sinfonía No. 5",
+        "artista": "Pyotr Ilyich Tchaikovsky",
+        "año_publicacion": 1888,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Concierto para violín en La menor",
+        "artista": "Johann Sebastian Bach",
+        "año_publicacion": 1731,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 3",
+        "artista": "Johannes Brahms",
+        "año_publicacion": 1883,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto para piano No. 4",
+        "artista": "Ludwig van Beethoven",
+        "año_publicacion": 1807,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 9 'Del Nuevo Mundo'",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1893,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para violín en Re mayor",
+        "artista": "Johannes Brahms",
+        "año_publicacion": 1878,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 6",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1880,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para piano No. 1",
+        "artista": "Sergei Rachmaninoff",
+        "año_publicacion": 1891,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Sinfonía No. 7",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1885,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para violín en Mi menor",
+        "artista": "Felix Mendelssohn",
+        "año_publicacion": 1844,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 8",
+        "artista": "Johannes Brahms",
+        "año_publicacion": 1889,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Concierto para piano No. 2",
+        "artista": "Frédéric Chopin",
+        "año_publicacion": 1830,
+        "genero": "Clásica",
+        "pais_origen": "Polonia"
+    },
+    {
+        "titulo": "Sinfonía No. 4",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1874,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para violín en La menor",
+        "artista": "Johann Sebastian Bach",
+        "año_publicacion": 1731,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 5",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1875,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para piano No. 1",
+        "artista": "Frédéric Chopin",
+        "año_publicacion": 1830,
+        "genero": "Clásica",
+        "pais_origen": "Polonia"
+    },
+    {
+        "titulo": "Sinfonía No. 2",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1865,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para violín en Re mayor",
+        "artista": "Pyotr Ilyich Tchaikovsky",
+        "año_publicacion": 1878,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Sinfonía No. 1",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1865,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para piano No. 3",
+        "artista": "Sergei Rachmaninoff",
+        "año_publicacion": 1909,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Sinfonía No. 3",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1873,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para violín en La menor",
+        "artista": "Johann Sebastian Bach",
+        "año_publicacion": 1731,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 7",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1885,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para piano No. 2",
+        "artista": "Frédéric Chopin",
+        "año_publicacion": 1830,
+        "genero": "Clásica",
+        "pais_origen": "Polonia"
+    },
+    {
+        "titulo": "Sinfonía No. 8",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1889,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para violín en Re mayor",
+        "artista": "Johannes Brahms",
+        "año_publicacion": 1878,
+        "genero": "Clásica",
+        "pais_origen": "Alemania"
+    },
+    {
+        "titulo": "Sinfonía No. 4",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1874,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para piano No. 1",
+        "artista": "Frédéric Chopin",
+        "año_publicacion": 1830,
+        "genero": "Clásica",
+        "pais_origen": "Polonia"
+    },
+    {
+        "titulo": "Sinfonía No. 2",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1865,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "Concierto para violín en Re mayor",
+        "artista": "Pyotr Ilyich Tchaikovsky",
+        "año_publicacion": 1878,
+        "genero": "Clásica",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Sinfonía No. 1",
+        "artista": "Antonín Dvořák",
+        "año_publicacion": 1865,
+        "genero": "Clásica",
+        "pais_origen": "República Checa"
+    },
+    {
+        "titulo": "The Voyage",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "A New World",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Age of Discovery",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Coronation",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Grand Armada",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Great Powers",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Last Stand",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The March to War",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Sun Never Sets",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Sound of Adventure",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "March on Granada",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "At the Gates of Constantinople",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2013,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "Katyusha",
+        "artista": "Tradicional rusa / Hearts of Iron IV",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Rusia"
+    },
+    {
+        "titulo": "Bella Ciao",
+        "artista": "Tradicional italiana / Hearts of Iron IV",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Italia"
+    },
+    {
+        "titulo": "Hearts of Iron IV Main Theme",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The War Ends",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Allies",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Axis",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Comintern",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "March to War",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Red Army",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "The Battle for Moscow",
+        "artista": "Andreas Waldetoft",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Suecia"
+    },
+    {
+        "titulo": "Wake Up, Get Up, Get Out There",
+        "artista": "Lyn Inaizumi",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Life Will Change",
+        "artista": "Lyn Inaizumi",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Last Surprise",
+        "artista": "Lyn Inaizumi",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Beneath the Mask",
+        "artista": "Lyn Inaizumi",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Rivers in the Desert",
+        "artista": "Lyn Inaizumi",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Hoshi To Bokura To",
+        "artista": "Lyn Inaizumi",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Price",
+        "artista": "Shoji Meguro",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Tokyo Daylight",
+        "artista": "Shoji Meguro",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Will Power",
+        "artista": "Shoji Meguro",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Beneath the Mask -Rain-",
+        "artista": "Lyn Inaizumi",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "The Whims of Fate",
+        "artista": "Shoji Meguro",
+        "año_publicacion": 2016,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Full Moon Full Life",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "It's Going Down Now",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Time Castle",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Changing Seasons -Reload-",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Mass Destruction -Reload-",
+        "artista": "Azumi Takahashi, Lotus Juice",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Iwatodai Dorm -Reload-",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Living With Determination -Reload-",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Memories of You -Reload-",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    },
+    {
+        "titulo": "Burn My Dread -Reload-",
+        "artista": "Azumi Takahashi",
+        "año_publicacion": 2024,
+        "genero": "Soundtrack",
+        "pais_origen": "Japón"
+    }
+]
