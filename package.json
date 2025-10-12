@@ -4,13 +4,14 @@
   "description": "Proyecto Node.js con TypeScript",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "clean": "rimraf dist",
     "rebuild": "npm run clean && npm run build",
     "watch": "tsc --watch",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test:db": "ts-node src/config/database.ts"
   },
   "keywords": [
     "typescript",
@@ -20,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@types/node": "^22.18.8",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
