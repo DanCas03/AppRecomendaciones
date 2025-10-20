@@ -45,3 +45,6 @@ coverage/
 *.temp
 .cache/
 
+# archivos de DB
+DB/tracks.csv
+
