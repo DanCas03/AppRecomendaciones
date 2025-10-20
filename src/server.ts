@@ -3,7 +3,7 @@
  */
 
 import app from './app';
-import { connectDB } from './config/database';
+//import { connectDB } from './config/database';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 const startServer = async (): Promise<void> => {
   try {
     // Conectar a MongoDB
-    await connectDB();
+    //await connectDB();
 
     // Iniciar servidor Express
     app.listen(PORT, () => {
