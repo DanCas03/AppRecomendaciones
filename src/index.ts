@@ -1,56 +1,51 @@
-/**
- * Punto de entrada principal de la aplicación
- */
+import express, { Request, Response } from 'express';
+import { buscarCancionesSimilares, recomendacionAleatoria, recomendacionPorTempo, retornarCanciones } from './recommendations';
+import { Song } from './song';
+import { Profile } from './profile';
 
-// Función de ejemplo con tipos de TypeScript
-function saludar(nombre: string): string {
-  return `¡Hola, ${nombre}! Bienvenido a TypeScript con Node.js`;
-}
+const app = express();
+const port = 3000;
 
-// Interfaz de ejemplo
-interface Usuario {
-  id: number;
-  nombre: string;
-  email: string;
-}
+app.use(express.json());
 
-// Clase de ejemplo
-class Aplicacion {
-  private usuarios: Usuario[] = [];
-
-  constructor(private nombreApp: string) {
-    console.log(`Iniciando aplicación: ${this.nombreApp}`);
-  }
-
-  agregarUsuario(usuario: Usuario): void {
-    this.usuarios.push(usuario);
-    console.log(`Usuario agregado: ${usuario.nombre}`);
-  }
-
-  listarUsuarios(): Usuario[] {
-    return this.usuarios;
-  }
-}
-
-// Ejecución principal
-async function main(): Promise<void> {
-  console.log(saludar('TypeScript'));
-  
-  const app = new Aplicacion('Mi Proyecto TypeScript');
-  
-  app.agregarUsuario({
-    id: 1,
-    nombre: 'Daniel',
-    email: 'daniel@ejemplo.com'
-  });
-
-  const usuarios = app.listarUsuarios();
-  console.log('Usuarios registrados:', usuarios);
-}
-
-// Ejecutar la aplicación
-main().catch((error) => {
-  console.error('Error en la aplicación:', error);
-  process.exit(1);
+// Endpoint GET
+app.get('/saludo', (_req: Request, res: Response) => {
+    res.send('¡Hola desde TypeScript!');
 });
 
+app.get('/recomendaciones', async (req: Request, res: Response) => {
+    const params = req.body;
+    const idealSong: Song = new Song(params);
+    const recomendaciones = await buscarCancionesSimilares(idealSong,0.4);
+    const recomendacionesLength=recomendaciones.length;
+    const recomendacionDefinitiva=recomendaciones[Math.floor(Math.random() * (recomendacionesLength + 1))];
+    res.json(recomendacionDefinitiva);
+});
+
+app.post('/updatePreferences', async(req:Request, res:Response) =>{
+    const params = req.body;
+    const profile:string= params.profile;
+    const song:Song =new Song(params.song);
+    Profile.actualizarPreferenciasPerfil(song,profile);
+    res.send('Preferencias actualizadas').status(200);
+});
+
+app.get('/cancionAleatoria', async(_req:Request, res:Response)=>{
+    return res.json(await recomendacionAleatoria());
+})
+
+app.get('/cancionPorTempo', async(req:Request, res:Response)=>{
+    const tempo=req.params.tempo;
+    const canciones=await recomendacionPorTempo(Number(tempo));
+    const cancionesLength=canciones.length;
+    const recomendacionDefinitiva=canciones[Math.floor(Math.random() * (cancionesLength + 1))];
+    return res.json(recomendacionDefinitiva);
+});
+
+app.get('/prueba', async (_req:Request, res:Response) =>{
+    res.json(await retornarCanciones());
+})
+
+app.listen(port, () => {
+    console.log(`Servidor corriendo en http://localhost:${port}`);
+});
