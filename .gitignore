@@ -48,3 +48,15 @@ coverage/
 # archivos de DB
 DB/tracks.csv
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+/python
+

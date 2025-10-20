@@ -5,7 +5,6 @@
         "canciones_aceptadas": "100",
         "avg_duration": 128000,
         "avg_explicit": 0.15,
-        "avg_release_year": 2015,
         "avg_danceability": 0.35,
         "avg_energy": 0.445,
         "avg_key": 2.4,
@@ -16,15 +15,13 @@
         "avg_liveness": 0.215,
         "avg_valence": 0.305,
         "avg_tempo": 120.5,
-        "avg_time_signature": 4,
-        "avg_mode":3.25
+        "avg_time_signature": 4
     },
     {
         "nombre_usuario": "user02",
         "contraseña": "user02",
         "avg_duration": 104000,
         "avg_explicit": 0.75,
-        "avg_release_year": 2018,
         "avg_danceability": 0.7,
         "avg_energy": 0.9,
         "avg_key": 1.2,
@@ -35,8 +32,7 @@
         "avg_liveness": 0.1,
         "avg_valence": 0.662,
         "avg_tempo": 135.4,
-        "avg_time_signature": 2,
-        "avg_mode":1.2
+        "avg_time_signature": 2
 
     },
     {
@@ -44,7 +40,6 @@
         "contraseña": "user03",
         "avg_duration": 172000,
         "avg_explicit": 0.12,
-        "avg_release_year": 1987,
         "avg_danceability": 0.48,
         "avg_energy": 0.62,
         "avg_key": 5.1,
@@ -55,8 +50,7 @@
         "avg_liveness": 0.27,
         "avg_valence": 0.52,
         "avg_tempo": 110.3,
-        "avg_time_signature": 4,
-        "avg_mode": 1.0
+        "avg_time_signature": 4
 
     },
     {
@@ -64,7 +58,6 @@
         "contraseña": "user04",
         "avg_duration": 138000,
         "avg_explicit": 0.25,
-        "avg_release_year": 2012,
         "avg_danceability": 0.72,
         "avg_energy": 0.81,
         "avg_key": 3.8,
@@ -75,15 +68,13 @@
         "avg_liveness": 0.18,
         "avg_valence": 0.76,
         "avg_tempo": 132.7,
-        "avg_time_signature": 4,
-        "avg_mode": 0.0
+        "avg_time_signature": 4
     },
     {
         "nombre_usuario": "user05",
         "contraseña": "user05",
         "avg_duration": 200000,
         "avg_explicit": 0.05,
-        "avg_release_year": 1974,
         "avg_danceability": 0.31,
         "avg_energy": 0.29,
         "avg_key": 1.6,
@@ -94,15 +85,13 @@
         "avg_liveness": 0.12,
         "avg_valence": 0.28,
         "avg_tempo": 98.4,
-        "avg_time_signature": 3,
-        "avg_mode": 1.0
+        "avg_time_signature": 3
     },
     {
         "nombre_usuario": "user06",
         "contraseña": "user06",
         "avg_duration": 192000,
         "avg_explicit": 0.18,
-        "avg_release_year": 2001,
         "avg_danceability": 0.56,
         "avg_energy": 0.49,
         "avg_key": 7.2,
@@ -113,15 +102,13 @@
         "avg_liveness": 0.38,
         "avg_valence": 0.61,
         "avg_tempo": 123.9,
-        "avg_time_signature": 5,
-        "avg_mode": 0.0
+        "avg_time_signature": 5
     },
     {
         "nombre_usuario": "user07",
         "contraseña": "user07",
         "avg_duration": 160000,
         "avg_explicit": 0.09,
-        "avg_release_year": 1999,
         "avg_danceability": 0.39,
         "avg_energy": 0.34,
         "avg_key": 2.9,
@@ -132,15 +119,13 @@
         "avg_liveness": 0.21,
         "avg_valence": 0.33,
         "avg_tempo": 115.2,
-        "avg_time_signature": 4,
-        "avg_mode": 1.0
+        "avg_time_signature": 4
     },
     {
         "nombre_usuario": "user08",
         "contraseña": "user08",
         "avg_duration": 180000,
         "avg_explicit": 0.2,
-        "avg_release_year": 2018,
         "avg_danceability": 0.65,
         "avg_energy": 0.72,
         "avg_key": 4.5,
@@ -151,15 +136,13 @@
         "avg_liveness": 0.44,
         "avg_valence": 0.69,
         "avg_tempo": 140.1,
-        "avg_time_signature": 4,
-        "avg_mode": 0.0
-    },
+        "avg_time_signature": 4
+        },
     {
         "nombre_usuario": "user09",
         "contraseña": "user09",
         "avg_duration": 150000,
         "avg_explicit": 0.07,
-        "avg_release_year": 1963,
         "avg_danceability": 0.22,
         "avg_energy": 0.18,
         "avg_key": 6.3,
@@ -170,15 +153,13 @@
         "avg_liveness": 0.09,
         "avg_valence": 0.19,
         "avg_tempo": 88.6,
-        "avg_time_signature": 3,
-        "avg_mode": 1.0
+        "avg_time_signature": 3
     },
     {
         "nombre_usuario": "user10",
         "contraseña": "user10",
         "avg_duration": 198000,
         "avg_explicit": 0.3,
-        "avg_release_year": 2020,
         "avg_danceability": 0.78,
         "avg_energy": 0.88,
         "avg_key": 0.9,
@@ -189,7 +170,6 @@
         "avg_liveness": 0.51,
         "avg_valence": 0.84,
         "avg_tempo": 145.8,
-        "avg_time_signature": 4,
-        "avg_mode": 0.0
+        "avg_time_signature": 4
     }
 ]
