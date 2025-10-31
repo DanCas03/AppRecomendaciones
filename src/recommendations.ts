@@ -1,5 +1,4 @@
 import { connectDB } from "./database";
-import { MongoClient } from "mongodb";
 import { Song } from "./song";
 
 /**
@@ -63,15 +62,18 @@ function documentToSong(doc: any): Song {
  * @returns Array de canciones similares
  */
 export async function buscarCancionesSimilares(idealSong: Song, threshold: number, limit: number = 20): Promise<Song[]> {
-    let client: MongoClient | undefined;
-
+    // No cerrar la conexión - se reutiliza globalmente
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
 
         const audio = idealSong.props.caracteristicas_audio;
+        
+        if (!audio) {
+            throw new Error('La canción no tiene características de audio');
+        }
 
         // Construir expresión de score usando las características de audio
+        // Esta fórmula debe ser equivalente a Song.compareTo()
         const exprScore = {
             $divide: [
                 {
@@ -96,22 +98,37 @@ export async function buscarCancionesSimilares(idealSong: Song, threshold: numbe
             ]
         };
 
+        // Usar agregación para calcular el score y ordenar por similitud
+        const pipeline = [
+            {
+                $addFields: {
+                    similarityScore: exprScore
+                }
+            },
+            {
+                $match: {
+                    similarityScore: { $lt: threshold },
+                    track_id: { $ne: idealSong.props.track_id }
+                }
+            },
+            {
+                $sort: { similarityScore: 1 } // Ordenar por score ascendente (menor = más similar)
+            },
+            {
+                $limit: limit
+            }
+        ];
+
         const results = await db.collection('canciones')
-            .find({
-                $expr: { $lt: [exprScore, threshold] },
-                track_id: { $ne: idealSong.props.track_id } // Excluir la canción de referencia
-            })
-            .limit(limit)
+            .aggregate(pipeline)
             .toArray();
 
+        console.log(`   Encontradas ${results.length} canciones con score < ${threshold}`);
+        
         return results.map(documentToSong);
     } catch (error) {
         console.error('Error al buscar canciones similares:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -121,10 +138,8 @@ export async function buscarCancionesSimilares(idealSong: Song, threshold: numbe
  * @returns Array de canciones aleatorias
  */
 export async function retornarCanciones(cantidad: number = 100): Promise<Song[]> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
         
         const results = await db.collection('canciones')
             .aggregate([
@@ -136,10 +151,6 @@ export async function retornarCanciones(cantidad: number = 100): Promise<Song[]>
     } catch (error) {
         console.error('Error al retornar canciones:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -148,10 +159,8 @@ export async function retornarCanciones(cantidad: number = 100): Promise<Song[]>
  * @returns Una canción aleatoria
  */
 export async function recomendacionAleatoria(): Promise<Song> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
         
         const results = await db.collection('canciones')
             .aggregate([
@@ -167,10 +176,6 @@ export async function recomendacionAleatoria(): Promise<Song> {
     } catch (error) {
         console.error('Error al buscar canción aleatoria:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -182,10 +187,8 @@ export async function recomendacionAleatoria(): Promise<Song> {
  * @returns Array de canciones con tempo similar
  */
 export async function recomendacionPorTempo(referenceTempo: number, rango: number = 5, limit: number = 20): Promise<Song[]> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
         
         const results = await db.collection('canciones')
             .find({
@@ -201,10 +204,6 @@ export async function recomendacionPorTempo(referenceTempo: number, rango: numbe
     } catch (error) {
         console.error('Error al buscar canciones por tempo:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -216,10 +215,8 @@ export async function recomendacionPorTempo(referenceTempo: number, rango: numbe
  * @returns Array de canciones del mismo género
  */
 export async function recomendacionPorGenero(generoId: number, limit: number = 20, ordenarPorPopularidad: boolean = true): Promise<Song[]> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
         
         let query = db.collection('canciones').find({ genero_id: generoId });
         
@@ -235,10 +232,6 @@ export async function recomendacionPorGenero(generoId: number, limit: number = 2
     } catch (error) {
         console.error('Error al buscar canciones por género:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -250,10 +243,8 @@ export async function recomendacionPorGenero(generoId: number, limit: number = 2
  * @returns Array de canciones del mismo género
  */
 export async function recomendacionPorNombreGenero(nombreGenero: string, limit: number = 20, ordenarPorPopularidad: boolean = true): Promise<Song[]> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
         
         // Buscar el género por nombre
         const genero = await db.collection('generos').findOne({ 
@@ -268,10 +259,6 @@ export async function recomendacionPorNombreGenero(nombreGenero: string, limit: 
     } catch (error) {
         console.error('Error al buscar canciones por nombre de género:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -283,10 +270,8 @@ export async function recomendacionPorNombreGenero(nombreGenero: string, limit: 
  * @returns Array de canciones del mismo artista
  */
 export async function recomendacionPorArtista(artistaId: number, limit: number = 20, ordenarPorPopularidad: boolean = true): Promise<Song[]> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
         
         let query = db.collection('canciones').find({ 
             artista_ids: artistaId 
@@ -304,10 +289,6 @@ export async function recomendacionPorArtista(artistaId: number, limit: number =
     } catch (error) {
         console.error('Error al buscar canciones por artista:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -319,10 +300,8 @@ export async function recomendacionPorArtista(artistaId: number, limit: number =
  * @returns Array de canciones del mismo artista
  */
 export async function recomendacionPorNombreArtista(nombreArtista: string, limit: number = 20, ordenarPorPopularidad: boolean = true): Promise<Song[]> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
         
         // Buscar el artista por nombre (case-insensitive)
         const artista = await db.collection('artistas').findOne({ 
@@ -337,10 +316,6 @@ export async function recomendacionPorNombreArtista(nombreArtista: string, limit
     } catch (error) {
         console.error('Error al buscar canciones por nombre de artista:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }
 
@@ -353,10 +328,8 @@ export async function recomendacionPorNombreArtista(nombreArtista: string, limit
  * @returns Array de canciones similares del género especificado
  */
 export async function recomendacionSimilarPorGenero(idealSong: Song, generoId: number, threshold: number = 0.3, limit: number = 20): Promise<Song[]> {
-    let client: MongoClient | undefined;
     try {
-        const { client: mongoClient, db } = await connectDB();
-        client = mongoClient;
+        const { db } = await connectDB();
 
         const audio = idealSong.props.caracteristicas_audio;
 
@@ -397,9 +370,5 @@ export async function recomendacionSimilarPorGenero(idealSong: Song, generoId: n
     } catch (error) {
         console.error('Error al buscar canciones similares por género:', error);
         throw error;
-    } finally {
-        if (client) {
-            await client.close();
-        }
     }
 }

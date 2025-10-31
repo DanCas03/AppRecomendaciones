@@ -12,7 +12,9 @@
     "watch": "tsc --watch",
     "type-check": "tsc --noEmit",
     "build:start": "tsc && node dist/server.js",
-    "test:db": "ts-node src/config/database.ts"
+    "test:db": "ts-node src/config/database.ts",
+    "inspect-db": "ts-node src/inspect-db.ts",
+    "test:recommendations": "ts-node src/test-recommendations.ts"
   },
   "keywords": [
     "typescript",
