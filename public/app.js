@@ -1,12 +1,19 @@
 // Estado global de la aplicación
 const state = {
     canciones: [],
+    cancionesOriginales: [], // Para mantener la lista completa sin filtrar
     cancionSeleccionada: null,
     recomendaciones: [],
     cargando: false,
     vistaActual: 'discover',
     usuarioActual: null, // { nombre_usuario: string }
-    likesCache: {} // { track_id: boolean }
+    likesCache: {}, // { track_id: boolean }
+    searchQuery: '', // Query de búsqueda actual
+    searchTimeout: null, // Para debounce de búsqueda
+    buscando: false, // Estado de búsqueda activa
+    searchOffset: 0, // Offset para paginación de búsqueda
+    searchHasMore: false, // Si hay más resultados de búsqueda
+    searchTotal: 0 // Total de resultados de búsqueda
 };
 
 const API_BASE = window.location.origin;
@@ -32,6 +39,27 @@ const profileSection = document.getElementById('profileSection');
 const profileNavBtn = document.getElementById('profileNavBtn');
 const loginNavBtn = document.getElementById('loginNavBtn');
 const navBtns = document.querySelectorAll('.nav-btn');
+const btnBack = document.getElementById('btnBack');
+const logoHome = document.getElementById('logoHome');
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+const searchResultsInfo = document.getElementById('searchResultsInfo');
+const searchResultsText = document.getElementById('searchResultsText');
+
+// Función para pausar todos los iframes de Spotify
+function pausarTodosLosIframes() {
+    const iframes = document.querySelectorAll('iframe[src*="spotify.com/embed"]');
+    iframes.forEach(iframe => {
+        // Guardamos el src original
+        const originalSrc = iframe.src;
+        // Temporalmente lo cambiamos a about:blank para detener la reproducción
+        iframe.src = 'about:blank';
+        // Lo restauramos inmediatamente para que esté listo para reproducir de nuevo
+        setTimeout(() => {
+            iframe.src = originalSrc;
+        }, 100);
+    });
+}
 
 // Navegación entre vistas
 navBtns.forEach(btn => {
@@ -42,6 +70,9 @@ navBtns.forEach(btn => {
 });
 
 function cambiarVista(view) {
+    // Pausar todas las canciones antes de cambiar de vista
+    pausarTodosLosIframes();
+    
     state.vistaActual = view;
     
     navBtns.forEach(btn => {
@@ -53,6 +84,27 @@ function cambiarVista(view) {
     recommendationsView.classList.toggle('hidden', view !== 'recommendations');
     profileView.classList.toggle('hidden', view !== 'profile');
     loginView.classList.toggle('hidden', view !== 'login');
+    
+    // Mostrar/ocultar botón de regreso
+    if (view === 'discover') {
+        btnBack.classList.add('hidden');
+    } else {
+        btnBack.classList.remove('hidden');
+    }
+    
+    // Si volvemos a discover, restaurar todas las canciones si había búsqueda activa
+    if (view === 'discover') {
+        if (state.searchQuery) {
+            limpiarBusqueda();
+        }
+    } else {
+        // Si salimos de discover, cancelar búsquedas pendientes
+        if (state.searchTimeout) {
+            clearTimeout(state.searchTimeout);
+            state.searchTimeout = null;
+        }
+        state.buscando = false;
+    }
     
     // Si cambiamos a Profile, verificar autenticación
     if (view === 'profile') {
@@ -76,6 +128,190 @@ function formatearDuracion(ms) {
     const minutos = Math.floor(ms / 60000);
     const segundos = Math.floor((ms % 60000) / 1000);
     return `${minutos}:${segundos.toString().padStart(2, '0')}`;
+}
+
+// Función de búsqueda con debounce (busca en la base de datos)
+function buscarCanciones(query) {
+    // Limpiar timeout anterior
+    if (state.searchTimeout) {
+        clearTimeout(state.searchTimeout);
+    }
+    
+    state.searchQuery = query.trim();
+    
+    // Si no hay búsqueda, restaurar canciones originales
+    if (!state.searchQuery) {
+        mostrarCancionesFiltradas(state.cancionesOriginales, true);
+        searchResultsInfo.classList.add('hidden');
+        searchClear.classList.add('hidden');
+        state.buscando = false;
+        state.searchOffset = 0;
+        state.searchHasMore = false;
+        state.searchTotal = 0;
+        return;
+    }
+    
+    searchClear.classList.remove('hidden');
+    
+    // Si la búsqueda es muy corta, esperar más caracteres
+    if (state.searchQuery.length < 2) {
+        searchResultsInfo.classList.remove('hidden');
+        searchResultsText.textContent = 'Escribe al menos 2 caracteres para buscar...';
+        return;
+    }
+    
+    // Mostrar loading inmediatamente
+    searchResultsInfo.classList.remove('hidden');
+    searchResultsText.innerHTML = '<div style="display: inline-flex; align-items: center; gap: 8px;"><div class="spinner" style="width: 16px; height: 16px; border-width: 2px; margin: 0;"></div> Buscando...</div>';
+    
+    // Resetear offset para nueva búsqueda
+    state.searchOffset = 0;
+    
+    // Debounce: esperar 500ms después de que el usuario deje de escribir
+    state.searchTimeout = setTimeout(async () => {
+        await buscarEnBaseDeDatos(state.searchQuery, 0, false);
+    }, 500);
+}
+
+// Buscar canciones en la base de datos
+async function buscarEnBaseDeDatos(query, offset = 0, append = false) {
+    if (state.buscando) return;
+    
+    state.buscando = true;
+    
+    try {
+        const response = await fetch(`${API_BASE}/api/canciones/search?q=${encodeURIComponent(query)}&limit=20&offset=${offset}`);
+        
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}`);
+        }
+        
+        const data = await response.json();
+        const resultados = data.canciones || [];
+        
+        // Solo actualizar si la query actual coincide con la búsqueda
+        if (query === state.searchQuery) {
+            // Actualizar estado de paginación
+            state.searchOffset = offset;
+            state.searchHasMore = data.hasMore || false;
+            state.searchTotal = data.total || resultados.length;
+            
+            if (append) {
+                // Agregar resultados a los existentes
+                const indexInicial = state.canciones.length;
+                state.canciones = [...state.canciones, ...resultados];
+                agregarCancionesAlGrid(resultados, indexInicial);
+            } else {
+                // Reemplazar resultados
+                state.canciones = resultados;
+                mostrarCancionesFiltradas(resultados, false);
+            }
+            
+            // Actualizar info de resultados
+            const totalMostradas = state.canciones.length;
+            if (state.searchTotal === 0) {
+                searchResultsText.textContent = 'No se encontraron canciones que coincidan con tu búsqueda';
+            } else if (state.searchTotal === 1) {
+                searchResultsText.textContent = '1 canción encontrada';
+            } else {
+                searchResultsText.textContent = `Mostrando ${totalMostradas} de ${state.searchTotal} canciones encontradas`;
+            }
+            
+            // Actualizar visibilidad del botón Load More
+            actualizarBotonLoadMore();
+        }
+    } catch (error) {
+        console.error('Error al buscar canciones:', error);
+        searchResultsText.textContent = 'Error al buscar. Intenta de nuevo.';
+    } finally {
+        state.buscando = false;
+    }
+}
+
+// Agregar canciones al grid sin borrar las existentes
+function agregarCancionesAlGrid(canciones, indexInicial) {
+    if (canciones.length === 0) return;
+    
+    canciones.forEach((cancion, index) => {
+        const card = crearTarjetaCancion(cancion, indexInicial + index);
+        songsGrid.appendChild(card);
+    });
+    
+    // Verificar likes después de renderizar
+    if (state.usuarioActual) {
+        setTimeout(() => verificarLikes(canciones), 500);
+    }
+}
+
+// Mostrar canciones filtradas (reemplaza todo el contenido)
+function mostrarCancionesFiltradas(canciones, updateState = true) {
+    if (updateState) {
+        state.canciones = canciones;
+    }
+    
+    songsGrid.innerHTML = '';
+    
+    if (canciones.length === 0) {
+        songsGrid.innerHTML = `
+            <div class="empty-state" style="grid-column: 1 / -1;">
+                <p>No se encontraron canciones</p>
+            </div>
+        `;
+        actualizarBotonLoadMore();
+        return;
+    }
+    
+    canciones.forEach((cancion, index) => {
+        const card = crearTarjetaCancion(cancion, index);
+        songsGrid.appendChild(card);
+    });
+    
+    // Actualizar botón Load More
+    actualizarBotonLoadMore();
+    
+    // Verificar likes después de renderizar
+    if (state.usuarioActual) {
+        setTimeout(() => verificarLikes(canciones), 500);
+    }
+}
+
+// Actualizar visibilidad y texto del botón Load More
+function actualizarBotonLoadMore() {
+    if (!btnMasCanciones) return;
+    
+    if (state.searchQuery) {
+        // Si hay búsqueda activa, mostrar solo si hay más resultados
+        if (state.searchHasMore) {
+            btnMasCanciones.style.display = 'block';
+            btnMasCanciones.textContent = 'Load More Results';
+        } else {
+            btnMasCanciones.style.display = 'none';
+        }
+    } else {
+        // Modo normal (sin búsqueda)
+        btnMasCanciones.style.display = 'block';
+        btnMasCanciones.textContent = 'Load More';
+    }
+}
+
+// Limpiar búsqueda
+function limpiarBusqueda() {
+    // Limpiar timeout pendiente
+    if (state.searchTimeout) {
+        clearTimeout(state.searchTimeout);
+        state.searchTimeout = null;
+    }
+    
+    searchInput.value = '';
+    state.searchQuery = '';
+    state.buscando = false;
+    state.searchOffset = 0;
+    state.searchHasMore = false;
+    state.searchTotal = 0;
+    mostrarCancionesFiltradas(state.cancionesOriginales, true);
+    searchResultsInfo.classList.add('hidden');
+    searchClear.classList.add('hidden');
+    searchInput.focus();
 }
 
 // Crear tarjeta de canción minimalista
@@ -188,7 +424,7 @@ function seleccionarCancion(cancion, index) {
     
     state.cancionSeleccionada = cancion;
     
-    // Cambiar a vista de recomendaciones
+    // Cambiar a vista de recomendaciones (esto pausará automáticamente)
     cambiarVista('recommendations');
     mostrarCancionBase(cancion);
 }
@@ -659,6 +895,9 @@ function animarSlider() {
 function irASlide(index) {
     if (index < 0 || index >= sliderCards.children.length) return;
     
+    // Pausar todas las canciones al cambiar de slide
+    pausarTodosLosIframes();
+    
     currentSlide = index;
     
     const cards = sliderCards.querySelectorAll('.card');
@@ -702,6 +941,9 @@ function handleSliderKeyboard(e) {
 async function obtenerRecomendacionesExplore(index) {
     const cancion = state.canciones[index];
     if (!cancion) return;
+    
+    // Pausar todas las canciones al obtener nuevas recomendaciones
+    pausarTodosLosIframes();
     
     // Mostrar sección de recomendaciones
     exploreRecommendations.classList.remove('hidden');
@@ -1127,6 +1369,7 @@ async function cargarCanciones(limit = 12) {
             nuevasCanciones.forEach(card => songsGrid.appendChild(card));
         }
         state.canciones = [...state.canciones, ...canciones];
+        state.cancionesOriginales = [...state.cancionesOriginales, ...canciones];
         
         // Verificar likes después de cargar canciones
         if (state.usuarioActual) {
@@ -1149,7 +1392,16 @@ async function cargarCanciones(limit = 12) {
 }
 
 // Event listeners
-btnMasCanciones.addEventListener('click', () => cargarCanciones(12));
+btnMasCanciones.addEventListener('click', async () => {
+    if (state.searchQuery) {
+        // Cargar más resultados de búsqueda
+        const nuevoOffset = state.searchOffset + 20;
+        await buscarEnBaseDeDatos(state.searchQuery, nuevoOffset, true);
+    } else {
+        // Cargar más canciones normales
+        cargarCanciones(12);
+    }
+});
 
 // Cargar canciones iniciales
 window.addEventListener('load', () => {
@@ -1489,4 +1741,38 @@ window.toggleLike = toggleLike;
 // Verificar autenticación al cargar
 window.addEventListener('load', () => {
     verificarAutenticacion();
+});
+
+// Botón de regreso - volver a Discover
+btnBack.addEventListener('click', () => {
+    cambiarVista('discover');
+});
+
+// Logo - volver a Discover
+logoHome.addEventListener('click', () => {
+    cambiarVista('discover');
+});
+
+// Accesibilidad: permitir Enter en el logo
+logoHome.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        cambiarVista('discover');
+    }
+});
+
+// Event listeners para búsqueda
+searchInput.addEventListener('input', (e) => {
+    buscarCanciones(e.target.value);
+});
+
+searchClear.addEventListener('click', () => {
+    limpiarBusqueda();
+});
+
+// Limpiar búsqueda con Escape
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        limpiarBusqueda();
+    }
 });

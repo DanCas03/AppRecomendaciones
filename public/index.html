@@ -13,7 +13,14 @@
 <body>
     <div class="app-container">
         <header class="header">
-            <h1 class="logo">Music Discovery</h1>
+            <div class="header-left">
+                <button class="btn-back hidden" id="btnBack" aria-label="Volver a inicio">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <h1 class="logo" id="logoHome" role="button" tabindex="0" aria-label="Ir a página principal">Music Discovery</h1>
+            </div>
             <nav class="nav">
                 <button class="nav-btn active" data-view="discover">Discover</button>
                 <button class="nav-btn" data-view="explore">For You</button>
@@ -24,6 +31,30 @@
 
         <!-- Vista de Descubrimiento -->
         <div class="view" id="discoverView">
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Buscar canciones o artistas..."
+                        autocomplete="off"
+                    />
+                    <button class="search-clear hidden" id="searchClear" aria-label="Limpiar búsqueda">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="search-results-info hidden" id="searchResultsInfo">
+                    <span id="searchResultsText"></span>
+                </div>
+            </div>
+            
             <div class="songs-grid" id="songsGrid">
                 <div class="loading" id="loading">
                     <div class="spinner"></div>

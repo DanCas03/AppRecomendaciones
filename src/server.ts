@@ -35,6 +35,7 @@ const startServer = async (): Promise<void> => {
       console.log(`   GET  http://localhost:${PORT}/`);
       console.log(`   GET  http://localhost:${PORT}/health`);
       console.log(`   GET  http://localhost:${PORT}/api/canciones`);
+      console.log(`   GET  http://localhost:${PORT}/api/canciones/search?q=query`);
       console.log(`   POST http://localhost:${PORT}/recomendaciones`);
       console.log(`   GET  http://localhost:${PORT}/api/spotify/track/:trackId`);
       console.log(`   POST http://localhost:${PORT}/api/auth/register`);

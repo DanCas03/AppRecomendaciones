@@ -618,6 +618,152 @@ app.get('/prueba', async (_req:Request, res:Response) =>{
     res.json(await retornarCanciones());
 });
 
+// Endpoint para buscar canciones por nombre o artista
+app.get('/api/canciones/search', async (req: Request, res: Response): Promise<void> => {
+    try {
+        const query = req.query.q as string;
+        const limit = parseInt(req.query.limit as string) || 20;
+        const offset = parseInt(req.query.offset as string) || 0;
+        
+        if (!query || query.trim().length === 0) {
+            res.json({ canciones: [], total: 0, hasMore: false });
+            return;
+        }
+        
+        const { db } = await connectDB();
+        
+        // Buscar por nombre de canción usando regex (case-insensitive)
+        const searchRegex = new RegExp(query.trim(), 'i');
+        
+        // Búsqueda paralela en canciones y artistas
+        const [cancionesPorNombre, artistasEncontrados] = await Promise.all([
+            // Buscar canciones por nombre
+            db.collection('canciones')
+                .find({ nombre: { $regex: searchRegex } })
+                .limit(limit + offset + 20) // Obtener más para tener suficientes después de combinar
+                .toArray(),
+            
+            // Buscar artistas por nombre
+            db.collection('artistas')
+                .find({ nombre: { $regex: searchRegex } })
+                .limit(20)
+                .toArray()
+        ]);
+        
+        // Obtener IDs de artistas encontrados
+        const artistaIds = artistasEncontrados.map(artista => artista._id);
+        
+        // Buscar canciones de esos artistas
+        let cancionesPorArtista: any[] = [];
+        if (artistaIds.length > 0) {
+            cancionesPorArtista = await db.collection('canciones')
+                .find({ artista_ids: { $in: artistaIds } })
+                .limit(limit + offset + 20)
+                .toArray();
+        }
+        
+        // Combinar resultados y eliminar duplicados
+        const cancionesMap = new Map();
+        
+        // Primero agregar canciones por nombre (tienen prioridad)
+        cancionesPorNombre.forEach(doc => {
+            cancionesMap.set(doc._id.toString(), doc);
+        });
+        
+        // Luego agregar canciones por artista (si no están ya)
+        cancionesPorArtista.forEach(doc => {
+            if (!cancionesMap.has(doc._id.toString())) {
+                cancionesMap.set(doc._id.toString(), doc);
+            }
+        });
+        
+        // Obtener todos los resultados únicos
+        const todosLosResultados = Array.from(cancionesMap.values());
+        const total = todosLosResultados.length;
+        
+        // Aplicar offset y limit
+        const resultadosUnicos = todosLosResultados.slice(offset, offset + limit);
+        const hasMore = (offset + limit) < total;
+        
+        // Convertir a formato Song
+        const canciones = resultadosUnicos.map(doc => new Song({
+            _id: doc._id,
+            track_id: doc.track_id,
+            nombre: doc.nombre,
+            artista_ids: doc.artista_ids || [],
+            album_id: doc.album_id,
+            genero_id: doc.genero_id,
+            popularidad: doc.popularidad,
+            duracion_ms: doc.duracion_ms,
+            explicito: doc.explicito,
+            caracteristicas_audio: doc.caracteristicas_audio,
+            fecha_creacion: doc.fecha_creacion
+        }));
+        
+        // Enriquecer con datos de Spotify si está configurado
+        const spotifyConfigured = !!(process.env.SPOTIFY_CLIENT_ID && process.env.SPOTIFY_CLIENT_SECRET);
+        
+        if (spotifyConfigured && canciones.length > 0) {
+            const trackIds = canciones
+                .map(c => c.props?.track_id)
+                .filter((id): id is string => typeof id === 'string' && id.length > 0);
+            
+            if (trackIds.length > 0) {
+                try {
+                    const spotifyTracks = await getSpotifyTracks(trackIds);
+                    const spotifyMap = new Map(spotifyTracks.map(track => [track.id, track]));
+                    
+                    const cancionesEnriquecidas = canciones.map(cancion => {
+                        const spotifyTrack = spotifyMap.get(cancion.props?.track_id || '');
+                        return {
+                            ...cancion,
+                            spotify: spotifyTrack ? {
+                                name: spotifyTrack.name,
+                                artists: spotifyTrack.artists.map(a => a.name).join(', '),
+                                album: spotifyTrack.album.name,
+                                albumImage: spotifyTrack.album.images[0]?.url || null,
+                                previewUrl: spotifyTrack.preview_url,
+                                spotifyUrl: spotifyTrack.external_urls.spotify,
+                                embedUrl: getSpotifyEmbedUrl(spotifyTrack.id),
+                                popularity: spotifyTrack.popularity,
+                                explicit: spotifyTrack.explicit,
+                            } : null,
+                        };
+                    });
+                    
+                    res.json({
+                        canciones: cancionesEnriquecidas,
+                        total,
+                        hasMore,
+                        offset,
+                        limit
+                    });
+                    return;
+                } catch (spotifyError) {
+                    // Continuar sin datos de Spotify
+                    console.log('Continuando sin datos de Spotify para búsqueda');
+                }
+            }
+        }
+        
+        res.json({
+            canciones,
+            total,
+            hasMore,
+            offset,
+            limit
+        });
+        return;
+    } catch (error) {
+        console.error('Error en /api/canciones/search:', error);
+        res.status(500).json({ 
+            error: 'Error al buscar canciones',
+            details: error instanceof Error ? error.message : 'Error desconocido'
+        });
+        return;
+    }
+});
+
 // Endpoint para obtener múltiples canciones para el feed con información de Spotify
 app.get('/api/canciones', async (req: Request, res: Response): Promise<void> => {
     try {
