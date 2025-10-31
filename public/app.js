@@ -45,6 +45,7 @@ const searchInput = document.getElementById('searchInput');
 const searchClear = document.getElementById('searchClear');
 const searchResultsInfo = document.getElementById('searchResultsInfo');
 const searchResultsText = document.getElementById('searchResultsText');
+const header = document.querySelector('.header');
 
 // Función para pausar todos los iframes de Spotify
 function pausarTodosLosIframes() {
@@ -1742,6 +1743,24 @@ window.toggleLike = toggleLike;
 window.addEventListener('load', () => {
     verificarAutenticacion();
 });
+
+// Minimizar header al hacer scroll
+let lastScrollTop = 0;
+const scrollThreshold = 50; // Píxeles que debe scrollear antes de minimizar
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > scrollThreshold) {
+        // Si ha scrolleado más de 50px, minimizar
+        header.classList.add('minimized');
+    } else {
+        // Si está en el top, mostrar normal
+        header.classList.remove('minimized');
+    }
+    
+    lastScrollTop = scrollTop;
+}, { passive: true });
 
 // Botón de regreso - volver a Discover
 btnBack.addEventListener('click', () => {

@@ -54,6 +54,12 @@ body {
     top: 0;
     background: var(--bg-primary);
     z-index: 100;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.minimized {
+    padding: var(--spacing-sm) var(--spacing-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .header-left {
@@ -92,12 +98,16 @@ body {
     font-style: italic;
     letter-spacing: -0.5px;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, font-size 0.3s ease;
     user-select: none;
 }
 
 .logo:hover {
     opacity: 0.7;
+}
+
+.header.minimized .logo {
+    font-size: 32px;
 }
 
 .nav {
@@ -1065,12 +1075,21 @@ body {
         gap: var(--spacing-md);
     }
     
+    .header.minimized {
+        padding: var(--spacing-xs) var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+    
     .header-left {
         gap: var(--spacing-sm);
     }
     
     .logo {
         font-size: 36px;
+    }
+    
+    .header.minimized .logo {
+        font-size: 28px;
     }
     
     .nav {
