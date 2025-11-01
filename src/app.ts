@@ -618,6 +618,65 @@ app.get('/prueba', async (_req:Request, res:Response) =>{
     res.json(await retornarCanciones());
 });
 
+app.get('/api/canciones/random', async (_req: Request, res: Response): Promise<void> => {
+    try {
+        const { db } = await connectDB();
+        const cancionDoc = await db.collection('canciones').aggregate([{ $sample: { size: 1 } }]).next();
+        if (!cancionDoc) {
+            res.status(404).json({"message":"No se encontró ninguna canción"});
+            return;
+        }
+        const cancion = new Song({
+            _id: cancionDoc._id,
+            track_id: cancionDoc.track_id,
+            nombre: cancionDoc.nombre,
+            artista_ids: cancionDoc.artista_ids || [],
+            album_id: cancionDoc.album_id,
+            genero_id: cancionDoc.genero_id,
+            popularidad: cancionDoc.popularidad,
+            duracion_ms: cancionDoc.duracion_ms,
+            explicito: cancionDoc.explicito,
+            caracteristicas_audio: cancionDoc.caracteristicas_audio,
+            fecha_creacion: cancionDoc.fecha_creacion
+        });
+        const spotifyConfigured = !!(process.env.SPOTIFY_CLIENT_ID && process.env.SPOTIFY_CLIENT_SECRET);
+        if (spotifyConfigured && cancion.props?.track_id) {
+            try {
+                const spotifyTrack = await getSpotifyTrack(cancion.props.track_id);
+                if (spotifyTrack) {
+                  res.json({
+                      ...cancion,
+                      spotify: {
+                          name: spotifyTrack.name,
+                          artists: spotifyTrack.artists.map(a => a.name).join(', '),
+                          album: spotifyTrack.album.name,
+                          albumImage: spotifyTrack.album.images[0]?.url || null,
+                          previewUrl: spotifyTrack.preview_url,
+                          spotifyUrl: spotifyTrack.external_urls.spotify,
+                          embedUrl: getSpotifyEmbedUrl(spotifyTrack.id),
+                          popularity: spotifyTrack.popularity,
+                          explicit: spotifyTrack.explicit,
+                      }
+                  });
+                  return;
+                }
+            } 
+            catch (spotifyError) {
+                console.log("Error obteniendo datos de Spotify:", spotifyError);
+                console.log('Continuando sin datos de Spotify para canción aleatoria');
+            }
+            res.json(cancion);
+            return;
+        }
+        res.json(cancion);
+        return;
+    } catch (error) {
+        console.error('Error en /api/canciones/random:', error);
+        res.status(500).json({"message":"Error al obtener canción aleatoria"});
+        return;
+    }
+});
+
 // Endpoint para buscar canciones por nombre o artista
 app.get('/api/canciones/search', async (req: Request, res: Response): Promise<void> => {
     try {
@@ -847,6 +906,8 @@ app.get('/api/canciones', async (req: Request, res: Response): Promise<void> => 
         }
     }
 });
+
+
 
 // Endpoint para obtener información de Spotify de un track específico
 app.get('/api/spotify/track/:trackId', async (req: Request, res: Response): Promise<void> => {

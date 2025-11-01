@@ -24,6 +24,7 @@
             <nav class="nav">
                 <button class="nav-btn active" data-view="discover">Discover</button>
                 <button class="nav-btn" data-view="explore">For You</button>
+                <button class="nav-btn" data-view="surpriseMe" id="surpriseNavBtn">Surprise me</button>
                 <button class="nav-btn" data-view="profile" id="profileNavBtn">Profile</button>
                 <button class="nav-btn" data-view="login" id="loginNavBtn">Login</button>
             </nav>
@@ -99,6 +100,22 @@
                     <div class="empty-state">
                         <p>Click "Get Recommendations" on a song to see recommendations</p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="view hidden" id="surpriseMeView">
+            <div class="slider-container">
+                <div class="slider-wrapper" id="sliderWrapperSurprise">
+                    <div class="cards" id="sliderCardsSurprise" style="justify-content: center;">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Loading surprise recommendation...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dots" id="sliderDotsSurpise"></div>
                 </div>
             </div>
         </div>

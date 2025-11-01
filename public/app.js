@@ -23,6 +23,7 @@ const songsGrid = document.getElementById('songsGrid');
 const loading = document.getElementById('loading');
 const btnMasCanciones = document.getElementById('btnMasCanciones');
 const discoverView = document.getElementById('discoverView');
+const surpriseMeView = document.getElementById('surpriseMeView');
 const exploreView = document.getElementById('exploreView');
 const recommendationsView = document.getElementById('recommendationsView');
 const profileView = document.getElementById('profileView');
@@ -83,6 +84,7 @@ function cambiarVista(view) {
     discoverView.classList.toggle('hidden', view !== 'discover');
     exploreView.classList.toggle('hidden', view !== 'explore');
     recommendationsView.classList.toggle('hidden', view !== 'recommendations');
+    surpriseMeView.classList.toggle('hidden', view !== 'surpriseMe');
     profileView.classList.toggle('hidden', view !== 'profile');
     loginView.classList.toggle('hidden', view !== 'login');
     
@@ -121,6 +123,10 @@ function cambiarVista(view) {
         cargarForYou();
         // Ocultar recomendaciones al cambiar de canción
         exploreRecommendations.classList.add('hidden');
+    }
+
+    if(view === 'surpriseMe'){
+        cargarSurpriseMe();
     }
 }
 
@@ -1795,3 +1801,69 @@ searchInput.addEventListener('keydown', (e) => {
         limpiarBusqueda();
     }
 });
+
+async function cargarSurpriseMe() {
+    sliderCards.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading surprise recommendations...</p></div>';
+    sliderDots.innerHTML = '';
+    
+    try {
+        // Obtener canciones liked del usuario
+        const likesRes = await fetch(`${API_BASE}/api/canciones/random`, {
+            headers: { 'x-username': state.usuarioActual.nombre_usuario }
+        });
+        if (!likesRes.ok) {
+            throw new Error('Error al obtener canciones sorpresa');
+        }
+        const cancionesRec = await likesRes.json();
+        // Inicializar slider con las recomendaciones
+        inicializarRandom([cancionesRec]);        
+    } catch (error) {
+        console.error('Error al cargar Surprise Me:', error);
+        sliderCards.innerHTML = `
+            <div class="error-message" style="grid-column: 1 / -1;">
+                Error loading personalized recommendations
+            </div>
+        `;
+    }
+}
+
+function inicializarRandom(cancionesParaSlider) {
+    if (!cancionesParaSlider || cancionesParaSlider.length === 0) return;
+    
+    // Limpiar slider anterior
+    document.getElementById('sliderCardsSurprise').innerHTML = '';
+    //document.getElementById('sliderDotsSurprise').innerHTML = '';
+    const sliderCardsSurprise = document.getElementById('sliderCardsSurprise');    
+    // Crear tarjetas del slider (máximo 10 para performance)
+    const cancionesLimitadas = cancionesParaSlider.slice(0, 10);
+    cancionesLimitadas.forEach((cancion, index) => {
+        // Convertir formato de respuesta a formato Song
+        const cancionFormateada = {
+            props: cancion.props || cancion,
+            spotify: cancion.spotify || null
+        };
+        sliderCardsSurprise.innerHTML = '';
+        const card = crearCardSlider(cancionFormateada, index);
+        sliderCardsSurprise.appendChild(card);
+        
+        // Crear dot
+        const dot = document.createElement('div');
+        dot.className = 'slider-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => irASlide(index));
+        sliderDots.appendChild(dot);
+    });
+    
+    // Configurar scroll horizontal con snap
+    configurarScrollSlider();
+    
+    // Actualizar dots cuando se hace scroll
+    sliderCards.addEventListener('scroll', actualizarDotsDesdeScroll, { passive: true });
+    
+    // Actualizar botones de like después de un momento
+    setTimeout(() => {
+        if (state.usuarioActual) {
+            actualizarBotonesLike();
+        }
+    }, 500);
+}

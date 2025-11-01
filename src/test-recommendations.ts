@@ -3,9 +3,7 @@
  * Ejecutar con: npx ts-node src/test-recommendations.ts
  */
 
-import { connectDB } from './database';
 import { retornarCanciones, buscarCancionesSimilares } from './recommendations';
-import { Song } from './song';
 
 async function testRecomendaciones() {
     try {
