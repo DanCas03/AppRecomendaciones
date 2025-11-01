@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-left">
+                <button class="btn-back hidden" id="btnBack" aria-label="Volver a inicio">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <h1 class="logo" id="logoHome" role="button" tabindex="0" aria-label="Ir a página principal">Music Discovery</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="discover">Discover</button>
+                <button class="nav-btn" data-view="explore">For You</button>
+                <button class="nav-btn" data-view="profile" id="profileNavBtn">Profile</button>
+                <button class="nav-btn" data-view="login" id="loginNavBtn">Login</button>
+            </nav>
+        </header>
+
+        <!-- Vista de Descubrimiento -->
+        <div class="view" id="discoverView">
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Buscar canciones o artistas..."
+                        autocomplete="off"
+                    />
+                    <button class="search-clear hidden" id="searchClear" aria-label="Limpiar búsqueda">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="search-results-info hidden" id="searchResultsInfo">
+                    <span id="searchResultsText"></span>
+                </div>
+            </div>
+            
+            <div class="songs-grid" id="songsGrid">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Loading songs...</p>
+                </div>
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn-load-more" id="btnMasCanciones">
+                    Load More
+                </button>
+            </div>
+        </div>
+
+        <!-- Vista de For You con Slider -->
+        <div class="view hidden" id="exploreView">
+            <div class="slider-container">
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <div class="cards" id="sliderCards">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Loading personalized recommendations...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </div>
+            
+            <!-- Sección de recomendaciones dentro de Explore -->
+            <div class="explore-recommendations hidden" id="exploreRecommendations">
+                <div class="explore-source-track" id="exploreSourceTrack">
+                    <p class="section-label">Based on</p>
+                    <div class="track-preview-card">
+                        <p class="empty-message">Select a song to see recommendations</p>
+                    </div>
+                </div>
+                
+                <div class="explore-recommendations-list" id="exploreRecommendationsList">
+                    <p class="section-label">Recommendations</p>
+                    <div class="empty-state">
+                        <p>Click "Get Recommendations" on a song to see recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista de Login/Register -->
+        <div class="view hidden" id="loginView">
+            <div class="profile-container">
+                <div class="auth-section" id="authSection">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="register">Register</button>
+                    </div>
+                    
+                    <div class="auth-form active" id="loginForm">
+                        <h2>Login</h2>
+                        <form id="loginFormElement">
+                            <input type="text" id="loginUsername" placeholder="Username" required>
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                            <button type="submit">Login</button>
+                        </form>
+                        <div class="auth-message" id="loginMessage"></div>
+                    </div>
+                    
+                    <div class="auth-form" id="registerForm">
+                        <h2>Register</h2>
+                        <form id="registerFormElement">
+                            <input type="text" id="registerUsername" placeholder="Username" required>
+                            <input type="password" id="registerPassword" placeholder="Password" required>
+                            <button type="submit">Register</button>
+                        </form>
+                        <div class="auth-message" id="registerMessage"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista de Perfil -->
+        <div class="view hidden" id="profileView">
+            <div class="profile-container">
+                <div class="profile-section" id="profileSection">
+                    <div class="profile-header">
+                        <h2 id="profileUsername">User Profile</h2>
+                        <button class="btn-logout" id="btnLogout">Logout</button>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Liked Songs</span>
+                            <span class="stat-value" id="likedCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Accepted Songs</span>
+                            <span class="stat-value" id="acceptedCount">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-likes">
+                        <h3>My Favorite Songs</h3>
+                        <div class="liked-songs-grid" id="likedSongsGrid">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                <p>Loading favorites...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista de Recomendaciones -->
+        <div class="view hidden" id="recommendationsView">
+            <div class="recommendations-container">
+                <div class="source-track" id="sourceTrack">
+                    <p class="section-label">Based on</p>
+                    <div class="track-preview-card">
+                        <p class="empty-message">Select a song to see recommendations</p>
+                    </div>
+                </div>
+                
+                <div class="recommendations-list" id="recommendationsList">
+                    <p class="section-label">Recommendations</p>
+                    <div class="empty-state">
+                        <p>Choose a song from the Discover section to get recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

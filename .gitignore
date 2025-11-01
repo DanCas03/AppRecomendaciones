@@ -15,6 +15,7 @@ build/
 # Excepciones - archivos JS que queremos mantener
 !jest.config.js
 !.eslintrc.js
+!public/*.js
 
 # Logs
 logs/

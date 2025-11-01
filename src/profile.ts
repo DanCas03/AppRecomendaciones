@@ -1,5 +1,5 @@
-import { Song } from "./song.js";
-import { connectDB } from "./database.js";
+import { Song } from "./song";
+import { connectDB } from "./database";
 import { MongoClient } from "mongodb";
 
 /**
@@ -9,6 +9,7 @@ interface Props {
     nombre_usuario: string;
     contraseña: string;
     canciones_aceptadas: number;
+    canciones_liked?: string[]; // Array de track_ids de canciones que le gustaron
     avg_duration: number;
     avg_explicit: number;
     avg_danceability: number;
@@ -23,6 +24,7 @@ interface Props {
     avg_valence: number;
     avg_tempo: number;
     avg_time_signature: number;
+    fecha_creacion?: Date;
 }
 
 /**
