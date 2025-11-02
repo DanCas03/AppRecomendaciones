@@ -4,7 +4,7 @@
 
 import express, { Application, Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
-import { buscarCancionesSimilares, recomendacionAleatoria, recomendacionPorTempo, retornarCanciones } from './recommendations';
+import { buscarCancionesSimilares, recomendacionAleatoria, recomendacionPorTempo, retornarCanciones, recomendacionSimilarPorGenero, recomendacionPorArtista, recomendacionPorGenero } from './recommendations';
 import { Song } from './song';
 import { Profile } from './profile';
 import { getSpotifyTrack, getSpotifyTracks, getSpotifyEmbedUrl } from './spotify';
@@ -150,7 +150,8 @@ app.post('/recomendaciones', async (req: Request, res: Response): Promise<void> 
     
     try {
         const params = req.body;
-        const limitParam = parseInt(req.query?.limit as string) || parseInt(req.body?.limit as string) || 1;
+        const limitParam = parseInt(req.query?.limit as string) || parseInt(req.body?.limit as string) || 5;
+        const filterParam = (req.query?.filter as string) || (req.body?.filter as string) || 'top';
         const idealSong: Song = new Song(params);
         
         // Validar que la canción tenga características de audio
@@ -161,104 +162,166 @@ app.post('/recomendaciones', async (req: Request, res: Response): Promise<void> 
             return;
         }
         
-        console.log(`🔍 Buscando recomendaciones para: ${idealSong.props?.nombre || idealSong.props?.track_id}`);
+        console.log(`🔍 Buscando recomendaciones para: ${idealSong.props?.nombre || idealSong.props?.track_id} con filtro: ${filterParam}`);
         if (idealSong.props?.caracteristicas_audio) {
             console.log(`   Tempo: ${idealSong.props.caracteristicas_audio.tempo}, Energy: ${idealSong.props.caracteristicas_audio.energy}, Danceability: ${idealSong.props.caracteristicas_audio.danceability}`);
         }
         
-        // Optimización: Hacer solo UNA consulta con threshold más permisivo (0.2)
-        // Luego filtrar y ordenar en memoria (mucho más rápido que múltiples consultas)
-        const thresholdBusqueda = 0.2; // Threshold inicial que balancea similitud y velocidad
-        const limiteCandidatos = limitParam > 1 ? Math.min(limitParam * 3, 40) : 40; // Limitar para mejorar velocidad
+        let resultado: Song[] = [];
         
-        console.log(`🔍 Buscando candidatos con threshold ${thresholdBusqueda} (máximo ${limiteCandidatos} candidatos)...`);
-        let recomendaciones = await buscarCancionesSimilares(idealSong, thresholdBusqueda, limiteCandidatos);
-        
-        // Si no hay resultados, intentar solo UNA vez más con threshold más alto
-        if (recomendaciones.length === 0) {
-            console.log(`⚠️ No se encontraron candidatos, intentando con threshold 0.3...`);
-            recomendaciones = await buscarCancionesSimilares(idealSong, 0.3, limiteCandidatos);
+        // Aplicar filtros según el parámetro
+        switch (filterParam) {
+            case 'genre':
+                // Buscar canciones similares del mismo género
+                if (idealSong.props?.genero_id) {
+                    console.log(`🎵 Filtrando por género ID: ${idealSong.props.genero_id}`);
+                    resultado = await recomendacionSimilarPorGenero(idealSong, idealSong.props.genero_id, 0.20, limitParam);
+                    // Si no hay suficientes, intentar con threshold más alto
+                    if (resultado.length < limitParam) {
+                        resultado = await recomendacionSimilarPorGenero(idealSong, idealSong.props.genero_id, 0.30, limitParam);
+                    }
+                    // Si aún no hay suficientes, buscar solo por género sin similitud
+                    if (resultado.length < limitParam) {
+                        const porGenero = await recomendacionPorGenero(idealSong.props.genero_id, limitParam, true);
+                        resultado = porGenero.filter(c => c.props?.track_id !== idealSong.props?.track_id);
+                    }
+                }
+                break;
+                
+            case 'artist':
+                // Buscar canciones del mismo artista
+                if (idealSong.props?.artista_ids && idealSong.props.artista_ids.length > 0) {
+                    console.log(`🎤 Filtrando por artista IDs: ${idealSong.props.artista_ids.join(', ')}`);
+                    // Buscar por cada artista y combinar resultados
+                    const todasCanciones: Song[] = [];
+                    for (const artistaId of idealSong.props.artista_ids) {
+                        const cancionesArtista = await recomendacionPorArtista(artistaId, limitParam * 2, true);
+                        todasCanciones.push(...cancionesArtista);
+                    }
+                    // Eliminar duplicados y la canción base
+                    const unicas = todasCanciones.filter((cancion, index, self) => {
+                        const trackId = cancion.props?.track_id;
+                        if (!trackId || trackId === idealSong.props?.track_id) return false;
+                        return index === self.findIndex(c => c.props?.track_id === trackId);
+                    });
+                    // Ordenar por popularidad y tomar las mejores
+                    unicas.sort((a, b) => (b.props?.popularidad || 0) - (a.props?.popularidad || 0));
+                    resultado = unicas.slice(0, limitParam);
+                }
+                break;
+                
+            case 'energy':
+                // Buscar canciones con alta energía similar
+                if (idealSong.props?.caracteristicas_audio?.energy !== undefined) {
+                    console.log(`⚡ Filtrando por energía similar: ${idealSong.props.caracteristicas_audio.energy}`);
+                    // Buscar canciones similares primero
+                    const similares = await buscarCancionesSimilares(idealSong, 0.20, limitParam * 3);
+                    // Filtrar por energía alta (>= 0.6) y ordenar por energía descendente
+                    resultado = similares
+                        .filter(c => {
+                            const energy = c.props?.caracteristicas_audio?.energy || 0;
+                            return energy >= 0.6 && c.props?.track_id !== idealSong.props?.track_id;
+                        })
+                        .sort((a, b) => {
+                            const energyA = a.props?.caracteristicas_audio?.energy || 0;
+                            const energyB = b.props?.caracteristicas_audio?.energy || 0;
+                            return energyB - energyA;
+                        })
+                        .slice(0, limitParam);
+                    
+                    // Si no hay suficientes, bajar el threshold a 0.5
+                    if (resultado.length < limitParam) {
+                        resultado = similares
+                            .filter(c => {
+                                const energy = c.props?.caracteristicas_audio?.energy || 0;
+                                return energy >= 0.5 && c.props?.track_id !== idealSong.props?.track_id;
+                            })
+                            .sort((a, b) => {
+                                const energyA = a.props?.caracteristicas_audio?.energy || 0;
+                                const energyB = b.props?.caracteristicas_audio?.energy || 0;
+                                return energyB - energyA;
+                            })
+                            .slice(0, limitParam);
+                    }
+                }
+                break;
+                
+            case 'tempo':
+                // Buscar canciones con tempo similar
+                if (idealSong.props?.caracteristicas_audio?.tempo) {
+                    console.log(`🎶 Filtrando por tempo similar: ${idealSong.props.caracteristicas_audio.tempo}`);
+                    const targetTempo = idealSong.props.caracteristicas_audio.tempo;
+                    resultado = await recomendacionPorTempo(targetTempo, 10, limitParam * 2);
+                    // Filtrar la canción base y ordenar por diferencia de tempo
+                    resultado = resultado
+                        .filter(c => c.props?.track_id !== idealSong.props?.track_id)
+                        .sort((a, b) => {
+                            const tempoA = a.props?.caracteristicas_audio?.tempo || 0;
+                            const tempoB = b.props?.caracteristicas_audio?.tempo || 0;
+                            const diffA = Math.abs(tempoA - targetTempo);
+                            const diffB = Math.abs(tempoB - targetTempo);
+                            return diffA - diffB;
+                        })
+                        .slice(0, limitParam);
+                }
+                break;
+                
+            case 'top':
+            default:
+                // Recomendaciones normales ordenadas por popularidad después de similitud
+                const thresholdBusqueda = 0.15;
+                const limiteCandidatos = limitParam * 5;
+                
+                console.log(`🔍 Buscando candidatos con threshold ${thresholdBusqueda} (máximo ${limiteCandidatos} candidatos)...`);
+                let recomendaciones = await buscarCancionesSimilares(idealSong, thresholdBusqueda, limiteCandidatos);
+                
+                if (recomendaciones.length === 0) {
+                    console.log(`⚠️ No se encontraron candidatos, intentando con threshold 0.20...`);
+                    recomendaciones = await buscarCancionesSimilares(idealSong, 0.20, limiteCandidatos);
+                }
+                
+                // Filtrar la canción base
+                const cancionesFiltradas = recomendaciones.filter(cancion => {
+                    if (cancion.props?.track_id && idealSong.props?.track_id) {
+                        return cancion.props.track_id !== idealSong.props.track_id;
+                    }
+                    return true;
+                });
+                
+                // Calcular scores y ordenar
+                const conScores = cancionesFiltradas.map(cancion => {
+                    const score = idealSong.compareTo(cancion);
+                    return { cancion, score };
+                });
+                
+                conScores.sort((a, b) => a.score - b.score);
+                
+                // Tomar las más similares pero también considerar popularidad
+                const mejoresSimilares = conScores
+                    .filter(item => item.score < 0.20)
+                    .slice(0, limitParam * 2);
+                
+                // Ordenar por popularidad y tomar las mejores
+                mejoresSimilares.sort((a, b) => {
+                    const popA = a.cancion.props?.popularidad || 0;
+                    const popB = b.cancion.props?.popularidad || 0;
+                    return popB - popA;
+                });
+                
+                resultado = mejoresSimilares.slice(0, limitParam).map(item => item.cancion);
+                break;
         }
         
-        console.log(`📊 Encontradas ${recomendaciones.length} candidatos`);
-        
-        if (recomendaciones.length === 0) {
-            console.log('⚠️ No se encontraron recomendaciones, usando canción aleatoria');
+        // Si no hay resultados, usar fallback
+        if (resultado.length === 0) {
+            console.log('⚠️ No se encontraron recomendaciones con el filtro, usando recomendación aleatoria');
             const alternativa = await recomendacionAleatoria();
-            res.json(limitParam > 1 ? [alternativa] : alternativa);
-            return;
+            resultado = [alternativa];
         }
         
-        // Re-ordenar usando compareTo() para asegurar que sean las más similares
-        // Esto es rápido porque solo calcula scores para los candidatos ya encontrados
-        // Filtrar primero para excluir la canción base
-        const cancionesFiltradas = recomendaciones.filter(cancion => {
-            // Excluir si tiene el mismo track_id
-            if (cancion.props?.track_id && idealSong.props?.track_id) {
-                return cancion.props.track_id !== idealSong.props.track_id;
-            }
-            // Excluir si tiene el mismo _id
-            if (cancion.props?._id && idealSong.props?._id) {
-                return cancion.props._id !== idealSong.props._id;
-            }
-            // Si no hay IDs, comparar por nombre (menos preciso pero mejor que nada)
-            if (cancion.props?.nombre && idealSong.props?.nombre) {
-                return cancion.props.nombre.toLowerCase() !== idealSong.props.nombre.toLowerCase();
-            }
-            return true; // Si no hay forma de comparar, incluir
-        });
+        console.log(`✅ Retornando ${resultado.length} recomendaciones con filtro ${filterParam}`);
         
-        if (cancionesFiltradas.length === 0) {
-            console.log('⚠️ Todas las recomendaciones eran la canción base, usando canción aleatoria');
-            const alternativa = await recomendacionAleatoria();
-            // Asegurarse de que la alternativa no sea la misma canción
-            if (alternativa.props?.track_id === idealSong.props?.track_id || 
-                alternativa.props?._id === idealSong.props?._id) {
-                const otraAlternativa = await recomendacionAleatoria();
-                res.json(limitParam > 1 ? [otraAlternativa] : otraAlternativa);
-            } else {
-                res.json(limitParam > 1 ? [alternativa] : alternativa);
-            }
-            return;
-        }
-        
-        const conScores = cancionesFiltradas.map(cancion => {
-            const score = idealSong.compareTo(cancion);
-            return { cancion, score };
-        });
-        
-        // Ordenar por similitud (menor score = más similar)
-        conScores.sort((a, b) => a.score - b.score);
-        
-        // Filtrar solo las realmente similares con thresholds progresivos
-        const muySimilares = conScores.filter(item => item.score < 0.15);
-        const similares = muySimilares.length >= limitParam 
-            ? muySimilares 
-            : conScores.filter(item => item.score < 0.18);
-        
-        const similaresFinales = similares.length >= limitParam 
-            ? similares 
-            : conScores.filter(item => item.score < 0.2);
-        
-        // Si aún no hay suficientes, usar las mejores disponibles (ordenadas)
-        const finales = similaresFinales.length >= limitParam 
-            ? similaresFinales.slice(0, limitParam)
-            : conScores.slice(0, Math.min(limitParam, conScores.length));
-        
-        const resultado = finales.map(item => item.cancion);
-        
-        console.log(`✅ Retornando ${resultado.length} recomendaciones ordenadas por similitud`);
-        if (resultado.length > 0) {
-            const mejorScore = conScores[0].score;
-            console.log(`   Mejor match - Score: ${mejorScore.toFixed(4)} (${resultado[0].props?.nombre || 'N/A'})`);
-            console.log(`   Rangos de score: ${Math.min(...finales.map(f => f.score)).toFixed(4)} - ${Math.max(...finales.map(f => f.score)).toFixed(4)}`);
-        }
-        
-        if (limitParam > 1) {
-            res.json(resultado);
-        } else {
-            res.json(resultado[0] || recomendaciones[0]);
-        }
+        res.json(resultado);
         return;
     } catch (error) {
         console.error('❌ Error en /recomendaciones:', error);

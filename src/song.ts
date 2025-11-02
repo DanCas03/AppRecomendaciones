@@ -47,6 +47,7 @@ export class Song {
 
     /**
      * Comparación normalizada entre dos valores numéricos
+     * Usa distancia normalizada mejorada para mejor precisión
      * Para referencia:
      * - Resultado entre 0.00 y 0.01: muy similar
      * - Resultado entre 0.01 y 0.05: similar
@@ -56,7 +57,18 @@ export class Song {
      */
     private normalizedComparation(value1: number, value2: number): number {
         if (value1 === 0 && value2 === 0) return 0;
-        return ((value1 ** 2 - value2 ** 2) / (value1 ** 2 + value2 ** 2)) ** 2;
+        
+        // Para valores en rangos similares (0-1 o valores pequeños), usar distancia normalizada simple
+        if (value1 <= 1 && value2 <= 1 && value1 >= 0 && value2 >= 0) {
+            // Para características entre 0-1, usar distancia absoluta
+            return Math.abs(value1 - value2);
+        }
+        
+        // Para valores grandes (duración, tempo, loudness), usar distancia porcentual normalizada
+        const maxValue = Math.max(Math.abs(value1), Math.abs(value2), 1);
+        const diff = Math.abs(value1 - value2);
+        // Normalizar por el valor máximo para evitar que valores grandes dominen
+        return diff / maxValue;
     }
 
     /**
@@ -69,25 +81,51 @@ export class Song {
         const audio1 = this.props.caracteristicas_audio;
         const audio2 = other.props.caracteristicas_audio;
 
-        // Comparar características de audio
-        score += this.normalizedComparation(this.props.duracion_ms, other.props.duracion_ms);
-        score += this.normalizedComparation(audio1.energy, audio2.energy);
-        score += this.normalizedComparation(audio1.loudness, audio2.loudness);
-        score += this.normalizedComparation(audio1.speechiness, audio2.speechiness);
-        score += this.normalizedComparation(audio1.acousticness, audio2.acousticness);
-        score += this.normalizedComparation(audio1.instrumentalness, audio2.instrumentalness);
-        score += this.normalizedComparation(audio1.liveness, audio2.liveness);
-        score += this.normalizedComparation(audio1.valence, audio2.valence);
-        score += this.normalizedComparation(audio1.tempo, audio2.tempo);
-        score += this.normalizedComparation(audio1.danceability, audio2.danceability);
-        
-        // Comparar atributos discretos
-        score += this.props.explicito === other.props.explicito ? 0 : 1;
-        score += this.normalizedComparation(audio1.key, audio2.key);
-        score += this.normalizedComparation(audio1.mode, audio2.mode);
-        score += this.normalizedComparation(audio1.time_signature, audio2.time_signature);
+        // Pesos diferentes para características más importantes
+        // Características más importantes para la similitud musical (mayor peso)
+        const pesoAlto = 1.5;
+        const pesoMedio = 1.0;
+        const pesoBajo = 0.5;
 
-        return score / 14; // Normalizado entre 0 y 1
+        // Características clave con mayor peso
+        score += this.normalizedComparation(audio1.energy, audio2.energy) * pesoAlto;
+        score += this.normalizedComparation(audio1.danceability, audio2.danceability) * pesoAlto;
+        score += this.normalizedComparation(audio1.valence, audio2.valence) * pesoAlto;
+        score += this.normalizedComparation(audio1.tempo, audio2.tempo) * pesoAlto;
+        
+        // Características de medio peso
+        score += this.normalizedComparation(audio1.acousticness, audio2.acousticness) * pesoMedio;
+        score += this.normalizedComparation(audio1.loudness, audio2.loudness) * pesoMedio;
+        score += this.normalizedComparation(audio1.instrumentalness, audio2.instrumentalness) * pesoMedio;
+        
+        // Características de menor peso
+        score += this.normalizedComparation(this.props.duracion_ms, other.props.duracion_ms) * pesoBajo;
+        score += this.normalizedComparation(audio1.speechiness, audio2.speechiness) * pesoBajo;
+        score += this.normalizedComparation(audio1.liveness, audio2.liveness) * pesoBajo;
+        
+        // Atributos discretos
+        score += (this.props.explicito === other.props.explicito ? 0 : 0.3) * pesoMedio;
+        
+        // Características técnicas de menor importancia
+        score += this.normalizedComparation(audio1.key, audio2.key) * pesoBajo;
+        score += this.normalizedComparation(audio1.mode, audio2.mode) * pesoBajo;
+        score += this.normalizedComparation(audio1.time_signature, audio2.time_signature) * pesoBajo;
+
+        // Suma de pesos totales para normalización
+        const pesoTotal = (pesoAlto * 4) + (pesoMedio * 4) + (pesoBajo * 6);
+        const scoreBase = score / pesoTotal;
+        
+        // Bonus por mismo género (reduce el score en 0.1 si es mismo género)
+        if (this.mismoGenero(other)) {
+            return Math.max(0, scoreBase - 0.1);
+        }
+        
+        // Bonus menor por mismo artista (reduce el score en 0.05)
+        if (this.comparteArtista(other)) {
+            return Math.max(0, scoreBase - 0.05);
+        }
+        
+        return scoreBase;
     }
 
     /**

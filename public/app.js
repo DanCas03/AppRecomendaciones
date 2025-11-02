@@ -3,6 +3,8 @@ const state = {
     canciones: [],
     cancionSeleccionada: null,
     recomendaciones: [],
+    recomendacionesOriginales: [], // Guardar recomendaciones sin filtrar
+    filtroActual: 'top',
     cargando: false,
     vistaActual: 'discover',
     usuarioActual: null, // { nombre_usuario: string }
@@ -703,6 +705,9 @@ async function obtenerRecomendacionesExplore(index) {
     const cancion = state.canciones[index];
     if (!cancion) return;
     
+    // Guardar canción seleccionada para los filtros
+    state.cancionSeleccionada = cancion;
+    
     // Mostrar sección de recomendaciones
     exploreRecommendations.classList.remove('hidden');
     exploreRecommendations.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -742,7 +747,7 @@ async function obtenerRecomendacionesExplore(index) {
             caracteristicas_audio: cancion.props.caracteristicas_audio
         };
         
-        const multiResponse = await fetch(`${API_BASE}/recomendaciones?limit=5`, {
+        const multiResponse = await fetch(`${API_BASE}/recomendaciones?limit=5&filter=top`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(cancionData)
@@ -755,7 +760,11 @@ async function obtenerRecomendacionesExplore(index) {
         const multiRecs = await multiResponse.json();
         const recomendaciones = Array.isArray(multiRecs) ? multiRecs : [multiRecs];
         
+        state.recomendaciones = recomendaciones;
+        state.recomendacionesOriginales = recomendaciones;
+        state.filtroActual = 'top';
         mostrarRecomendacionesExplore(recomendaciones);
+        inicializarFiltros('exploreFilterButtons');
         
     } catch (error) {
         console.error('Error al obtener recomendaciones:', error);
@@ -865,34 +874,15 @@ function mostrarCancionBaseExplore(cancion) {
            }, 500);
        }
 
-function mostrarRecomendacionesExplore(recomendaciones) {
-    if (recomendaciones.length === 0) {
-        exploreRecommendationsList.innerHTML = `
-            <p class="section-label">Recommendations</p>
-            <div class="empty-state">
-                No recommendations found
-            </div>
-        `;
-        return;
-    }
-    
-    exploreRecommendationsList.innerHTML = `
-        <p class="section-label">Recommendations (${recomendaciones.length})</p>
-        ${recomendaciones.map((rec, idx) => crearItemRecomendacion(rec, idx)).join('')}
-    `;
-    
-    // Actualizar botones de like después de renderizar
-    setTimeout(() => {
-        if (state.usuarioActual) {
-            actualizarBotonesLike();
-        }
-    }, 500);
-}
+// Función mostrarRecomendacionesExplore movida abajo para usar filtros
 
 // Obtener recomendaciones
 async function obtenerRecomendaciones(index) {
     const cancion = state.canciones[index];
     if (!cancion) return;
+    
+    // Guardar canción seleccionada para los filtros
+    state.cancionSeleccionada = cancion;
     
     state.cargando = true;
     
@@ -996,7 +986,10 @@ async function obtenerRecomendaciones(index) {
         }
         
         state.recomendaciones = recomendaciones;
+        state.recomendacionesOriginales = recomendaciones; // Guardar sin filtrar
+        state.filtroActual = 'top'; // Resetear filtro
         mostrarRecomendaciones(recomendaciones);
+        inicializarFiltros('filterButtons');
         
     } catch (error) {
         console.error('Error al obtener recomendaciones:', error);
@@ -1012,29 +1005,7 @@ async function obtenerRecomendaciones(index) {
 }
 
 // Mostrar recomendaciones
-function mostrarRecomendaciones(recomendaciones) {
-    if (recomendaciones.length === 0) {
-        recommendationsList.innerHTML = `
-            <p class="section-label">Recommendations</p>
-            <div class="empty-state">
-                No recommendations found
-            </div>
-        `;
-        return;
-    }
-    
-    recommendationsList.innerHTML = `
-        <p class="section-label">Recommendations (${recomendaciones.length})</p>
-        ${recomendaciones.map((rec, idx) => crearItemRecomendacion(rec, idx)).join('')}
-    `;
-    
-    // Actualizar botones de like después de renderizar
-    setTimeout(() => {
-        if (state.usuarioActual) {
-            actualizarBotonesLike();
-        }
-    }, 500);
-}
+// Función mostrarRecomendaciones movida abajo para usar filtros
 
 // Crear item de recomendación
 function crearItemRecomendacion(cancion, index) {
@@ -1207,7 +1178,6 @@ async function mostrarPerfil() {
         const profile = await profileRes.json();
         document.getElementById('profileUsername').textContent = profile.nombre_usuario;
         document.getElementById('likedCount').textContent = profile.canciones_liked_count || 0;
-        document.getElementById('acceptedCount').textContent = profile.canciones_aceptadas || 0;
         
         // Cargar canciones liked
         await cargarCancionesLiked();
@@ -1479,6 +1449,185 @@ document.getElementById('btnLogout').addEventListener('click', () => {
     actualizarNavNoAutenticado();
     cambiarVista('login');
 });
+
+// ==================== FILTROS DE RECOMENDACIONES ====================
+
+// Inicializar filtros de recomendaciones
+function inicializarFiltros(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    const filterButtons = container.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            aplicarFiltro(filter, containerId);
+        });
+    });
+}
+
+// Aplicar filtro a las recomendaciones - ahora busca nuevas recomendaciones del backend
+async function aplicarFiltro(filtro, containerId) {
+    if (!state.cancionSeleccionada) {
+        console.warn('No hay canción seleccionada para filtrar');
+        return;
+    }
+    
+    // Actualizar estado del filtro
+    state.filtroActual = filtro;
+    
+    // Actualizar botones activos
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === filtro);
+        });
+    }
+    
+    // Mostrar loading
+    const isExplore = state.vistaActual === 'explore';
+    const listContainer = isExplore ? exploreRecommendationsList : recommendationsList;
+    const headerHTML = document.querySelector(`#${isExplore ? 'exploreRecommendationsList' : 'recommendationsList'} .recommendations-header`)?.outerHTML || '';
+    listContainer.innerHTML = `
+        ${headerHTML}
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading filtered recommendations...</p>
+        </div>
+    `;
+    
+    try {
+        const cancion = state.cancionSeleccionada;
+        const cancionData = {
+            track_id: cancion.props?.track_id || '',
+            nombre: cancion.props?.nombre || '',
+            artista_ids: cancion.props?.artista_ids || [],
+            album_id: cancion.props?.album_id || 0,
+            genero_id: cancion.props?.genero_id || 0,
+            popularidad: cancion.props?.popularidad || 0,
+            duracion_ms: cancion.props?.duracion_ms || 0,
+            explicito: cancion.props?.explicito || false,
+            caracteristicas_audio: cancion.props?.caracteristicas_audio
+        };
+        
+        // Llamar al backend con el filtro
+        const response = await fetch(`${API_BASE}/recomendaciones?limit=5&filter=${filtro}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cancionData)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}`);
+        }
+        
+        const recomendaciones = await response.json();
+        const recomendacionesArray = Array.isArray(recomendaciones) ? recomendaciones : [recomendaciones];
+        
+        // Actualizar estado
+        state.recomendaciones = recomendacionesArray;
+        state.recomendacionesOriginales = recomendacionesArray;
+        
+        // Mostrar recomendaciones
+        if (isExplore) {
+            mostrarRecomendacionesExplore(recomendacionesArray);
+        } else {
+            mostrarRecomendaciones(recomendacionesArray);
+        }
+        
+    } catch (error) {
+        console.error('Error al aplicar filtro:', error);
+        listContainer.innerHTML = `
+            ${headerHTML}
+            <div class="error-message">
+                Error loading filtered recommendations. Please try again.
+            </div>
+        `;
+        inicializarFiltros(containerId);
+    }
+}
+
+// Actualizar mostrarRecomendaciones para mantener header con filtros
+function mostrarRecomendaciones(recomendaciones) {
+    // Preservar el header existente o crear uno nuevo
+    let header = document.querySelector('#recommendationsList .recommendations-header');
+    if (!header) {
+        // Si no existe, crear el header con filtros
+        header = document.createElement('div');
+        header.className = 'recommendations-header';
+        header.innerHTML = `
+            <p class="section-label">Recommendations</p>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn ${state.filtroActual === 'top' ? 'active' : ''}" data-filter="top">Top</button>
+                <button class="filter-btn ${state.filtroActual === 'genre' ? 'active' : ''}" data-filter="genre">Genre</button>
+                <button class="filter-btn ${state.filtroActual === 'artist' ? 'active' : ''}" data-filter="artist">Artist</button>
+                <button class="filter-btn ${state.filtroActual === 'energy' ? 'active' : ''}" data-filter="energy">Energy</button>
+                <button class="filter-btn ${state.filtroActual === 'tempo' ? 'active' : ''}" data-filter="tempo">Tempo</button>
+            </div>
+        `;
+    }
+    
+    const headerHTML = header.outerHTML;
+    const recommendationsHTML = recomendaciones.length === 0 
+        ? '<div class="empty-state">No recommendations found for this filter</div>'
+        : recomendaciones.map((rec, idx) => crearItemRecomendacion(rec, idx)).join('');
+    
+    recommendationsList.innerHTML = `
+        ${headerHTML}
+        ${recommendationsHTML}
+    `;
+    
+    // Reinicializar filtros después de re-renderizar
+    inicializarFiltros('filterButtons');
+    
+    // Actualizar botones de like después de renderizar
+    setTimeout(() => {
+        if (state.usuarioActual) {
+            actualizarBotonesLike();
+        }
+    }, 500);
+}
+
+// Actualizar mostrarRecomendacionesExplore para mantener header con filtros
+function mostrarRecomendacionesExplore(recomendaciones) {
+    // Preservar el header existente o crear uno nuevo
+    let header = document.querySelector('#exploreRecommendationsList .recommendations-header');
+    if (!header) {
+        // Si no existe, crear el header con filtros
+        header = document.createElement('div');
+        header.className = 'recommendations-header';
+        header.innerHTML = `
+            <p class="section-label">Recommendations</p>
+            <div class="filter-buttons" id="exploreFilterButtons">
+                <button class="filter-btn ${state.filtroActual === 'top' ? 'active' : ''}" data-filter="top">Top</button>
+                <button class="filter-btn ${state.filtroActual === 'genre' ? 'active' : ''}" data-filter="genre">Genre</button>
+                <button class="filter-btn ${state.filtroActual === 'artist' ? 'active' : ''}" data-filter="artist">Artist</button>
+                <button class="filter-btn ${state.filtroActual === 'energy' ? 'active' : ''}" data-filter="energy">Energy</button>
+                <button class="filter-btn ${state.filtroActual === 'tempo' ? 'active' : ''}" data-filter="tempo">Tempo</button>
+            </div>
+        `;
+    }
+    
+    const headerHTML = header.outerHTML;
+    const recommendationsHTML = recomendaciones.length === 0 
+        ? '<div class="empty-state">No recommendations found for this filter</div>'
+        : recomendaciones.map((rec, idx) => crearItemRecomendacion(rec, idx)).join('');
+    
+    exploreRecommendationsList.innerHTML = `
+        ${headerHTML}
+        ${recommendationsHTML}
+    `;
+    
+    // Reinicializar filtros después de re-renderizar
+    inicializarFiltros('exploreFilterButtons');
+    
+    // Actualizar botones de like después de renderizar
+    setTimeout(() => {
+        if (state.usuarioActual) {
+            actualizarBotonesLike();
+        }
+    }, 500);
+}
 
 // Exportar funciones globalmente para onclick
 window.obtenerRecomendaciones = obtenerRecomendaciones;

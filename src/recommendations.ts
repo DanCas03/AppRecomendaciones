@@ -2,33 +2,37 @@ import { connectDB } from "./database";
 import { Song } from "./song";
 
 /**
- * Crea una expresión de agregación para comparación normalizada
+ * Crea una expresión de agregación para comparación normalizada mejorada
  * Usado en MongoDB aggregation pipeline
+ * Esta función se aproxima a la nueva lógica de normalizedComparation
  */
-function normalizedExpr(field: string, refValue: number) {
+function normalizedExpr(field: string, refValue: number, isNormalized: boolean = false) {
+    // Para características normalizadas (0-1), usar distancia absoluta
+    if (isNormalized) {
+        return {
+            $abs: {
+                $subtract: [`$${field}`, refValue]
+            }
+        };
+    }
+    
+    // Para valores grandes, usar distancia porcentual normalizada
+    // Construir la referencia al campo dinámicamente
+    const fieldRef = `$${field}`;
     return {
         $cond: [
-            { $and: [{ $eq: [`$${field}`, 0] }, { $eq: [refValue, 0] }] },
+            { $and: [{ $eq: [fieldRef, 0] }, { $eq: [refValue, 0] }] },
             0,
             {
-                $pow: [
+                $divide: [
+                    { $abs: { $subtract: [fieldRef, refValue] } },
                     {
-                        $divide: [
-                            {
-                                $subtract: [
-                                    { $pow: [`$${field}`, 2] },
-                                    Math.pow(refValue, 2)
-                                ]
-                            },
-                            {
-                                $add: [
-                                    { $pow: [`$${field}`, 2] },
-                                    Math.pow(refValue, 2)
-                                ]
-                            }
+                        $max: [
+                            { $abs: fieldRef },
+                            Math.abs(refValue),
+                            1
                         ]
-                    },
-                    2
+                    }
                 ]
             }
         ]
@@ -73,28 +77,49 @@ export async function buscarCancionesSimilares(idealSong: Song, threshold: numbe
         }
 
         // Construir expresión de score usando las características de audio
-        // Esta fórmula debe ser equivalente a Song.compareTo()
+        // Aproximación de la nueva lógica con pesos
+        const pesoAlto = 1.5;
+        const pesoMedio = 1.0;
+        const pesoBajo = 0.5;
+        
+        // Características clave con mayor peso (normalizadas 0-1)
+        const caracteristicasAltas = [
+            { $multiply: [normalizedExpr('caracteristicas_audio.energy', audio.energy, true), pesoAlto] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.danceability', audio.danceability, true), pesoAlto] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.valence', audio.valence, true), pesoAlto] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.tempo', audio.tempo, false), pesoAlto] }
+        ];
+        
+        // Características de medio peso
+        const caracteristicasMedias = [
+            { $multiply: [normalizedExpr('caracteristicas_audio.acousticness', audio.acousticness, true), pesoMedio] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.loudness', audio.loudness, false), pesoMedio] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.instrumentalness', audio.instrumentalness, true), pesoMedio] },
+            { $multiply: [{ $cond: [{ $eq: ['$explicito', idealSong.props.explicito] }, 0, 0.3] }, pesoMedio] }
+        ];
+        
+        // Características de menor peso
+        const caracteristicasBajas = [
+            { $multiply: [normalizedExpr('duracion_ms', idealSong.props.duracion_ms, false), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.speechiness', audio.speechiness, true), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.liveness', audio.liveness, true), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.key', audio.key, false), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.mode', audio.mode, false), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.time_signature', audio.time_signature, false), pesoBajo] }
+        ];
+        
+        const pesoTotal = (pesoAlto * 4) + (pesoMedio * 4) + (pesoBajo * 6);
+        
         const exprScore = {
             $divide: [
                 {
                     $add: [
-                        normalizedExpr('duracion_ms', idealSong.props.duracion_ms),
-                        normalizedExpr('caracteristicas_audio.danceability', audio.danceability),
-                        normalizedExpr('caracteristicas_audio.energy', audio.energy),
-                        normalizedExpr('caracteristicas_audio.loudness', audio.loudness),
-                        normalizedExpr('caracteristicas_audio.speechiness', audio.speechiness),
-                        normalizedExpr('caracteristicas_audio.acousticness', audio.acousticness),
-                        normalizedExpr('caracteristicas_audio.instrumentalness', audio.instrumentalness),
-                        normalizedExpr('caracteristicas_audio.liveness', audio.liveness),
-                        normalizedExpr('caracteristicas_audio.valence', audio.valence),
-                        normalizedExpr('caracteristicas_audio.tempo', audio.tempo),
-                        { $cond: [{ $eq: ['$explicito', idealSong.props.explicito] }, 0, 1] },
-                        normalizedExpr('caracteristicas_audio.key', audio.key),
-                        normalizedExpr('caracteristicas_audio.mode', audio.mode),
-                        normalizedExpr('caracteristicas_audio.time_signature', audio.time_signature)
+                        ...caracteristicasAltas,
+                        ...caracteristicasMedias,
+                        ...caracteristicasBajas
                     ]
                 },
-                14
+                pesoTotal
             ]
         };
 
@@ -327,43 +352,83 @@ export async function recomendacionPorNombreArtista(nombreArtista: string, limit
  * @param limit - Número máximo de canciones a retornar
  * @returns Array de canciones similares del género especificado
  */
-export async function recomendacionSimilarPorGenero(idealSong: Song, generoId: number, threshold: number = 0.3, limit: number = 20): Promise<Song[]> {
+export async function recomendacionSimilarPorGenero(idealSong: Song, generoId: number, threshold: number = 0.15, limit: number = 20): Promise<Song[]> {
     try {
         const { db } = await connectDB();
 
         const audio = idealSong.props.caracteristicas_audio;
 
+        // Usar la misma lógica de pesos que en buscarCancionesSimilares
+        const pesoAlto = 1.5;
+        const pesoMedio = 1.0;
+        const pesoBajo = 0.5;
+        
+        const caracteristicasAltas = [
+            { $multiply: [normalizedExpr('caracteristicas_audio.energy', audio.energy, true), pesoAlto] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.danceability', audio.danceability, true), pesoAlto] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.valence', audio.valence, true), pesoAlto] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.tempo', audio.tempo, false), pesoAlto] }
+        ];
+        
+        const caracteristicasMedias = [
+            { $multiply: [normalizedExpr('caracteristicas_audio.acousticness', audio.acousticness, true), pesoMedio] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.loudness', audio.loudness, false), pesoMedio] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.instrumentalness', audio.instrumentalness, true), pesoMedio] },
+            { $multiply: [{ $cond: [{ $eq: ['$explicito', idealSong.props.explicito] }, 0, 0.3] }, pesoMedio] }
+        ];
+        
+        const caracteristicasBajas = [
+            { $multiply: [normalizedExpr('duracion_ms', idealSong.props.duracion_ms, false), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.speechiness', audio.speechiness, true), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.liveness', audio.liveness, true), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.key', audio.key, false), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.mode', audio.mode, false), pesoBajo] },
+            { $multiply: [normalizedExpr('caracteristicas_audio.time_signature', audio.time_signature, false), pesoBajo] }
+        ];
+        
+        const pesoTotal = (pesoAlto * 4) + (pesoMedio * 4) + (pesoBajo * 6);
+        
         const exprScore = {
             $divide: [
                 {
                     $add: [
-                        normalizedExpr('duracion_ms', idealSong.props.duracion_ms),
-                        normalizedExpr('caracteristicas_audio.danceability', audio.danceability),
-                        normalizedExpr('caracteristicas_audio.energy', audio.energy),
-                        normalizedExpr('caracteristicas_audio.loudness', audio.loudness),
-                        normalizedExpr('caracteristicas_audio.speechiness', audio.speechiness),
-                        normalizedExpr('caracteristicas_audio.acousticness', audio.acousticness),
-                        normalizedExpr('caracteristicas_audio.instrumentalness', audio.instrumentalness),
-                        normalizedExpr('caracteristicas_audio.liveness', audio.liveness),
-                        normalizedExpr('caracteristicas_audio.valence', audio.valence),
-                        normalizedExpr('caracteristicas_audio.tempo', audio.tempo),
-                        { $cond: [{ $eq: ['$explicito', idealSong.props.explicito] }, 0, 1] },
-                        normalizedExpr('caracteristicas_audio.key', audio.key),
-                        normalizedExpr('caracteristicas_audio.mode', audio.mode),
-                        normalizedExpr('caracteristicas_audio.time_signature', audio.time_signature)
+                        ...caracteristicasAltas,
+                        ...caracteristicasMedias,
+                        ...caracteristicasBajas
                     ]
                 },
-                14
+                pesoTotal
             ]
         };
 
+        // Usar agregación para calcular el score y ordenar por similitud
+        const pipeline = [
+            {
+                $match: {
+                    genero_id: generoId,
+                    track_id: { $ne: idealSong.props.track_id }
+                }
+            },
+            {
+                $addFields: {
+                    similarityScore: exprScore
+                }
+            },
+            {
+                $match: {
+                    similarityScore: { $lt: threshold }
+                }
+            },
+            {
+                $sort: { similarityScore: 1 }
+            },
+            {
+                $limit: limit
+            }
+        ];
+
         const results = await db.collection('canciones')
-            .find({
-                $expr: { $lt: [exprScore, threshold] },
-                genero_id: generoId,
-                track_id: { $ne: idealSong.props.track_id }
-            })
-            .limit(limit)
+            .aggregate(pipeline)
             .toArray();
 
         return results.map(documentToSong);

@@ -64,7 +64,16 @@
                 </div>
                 
                 <div class="explore-recommendations-list" id="exploreRecommendationsList">
-                    <p class="section-label">Recommendations</p>
+                    <div class="recommendations-header">
+                        <p class="section-label">Recommendations</p>
+                        <div class="filter-buttons" id="exploreFilterButtons">
+                            <button class="filter-btn active" data-filter="top">Top</button>
+                            <button class="filter-btn" data-filter="genre">Genre</button>
+                            <button class="filter-btn" data-filter="artist">Artist</button>
+                            <button class="filter-btn" data-filter="energy">Energy</button>
+                            <button class="filter-btn" data-filter="tempo">Tempo</button>
+                        </div>
+                    </div>
                     <div class="empty-state">
                         <p>Click "Get Recommendations" on a song to see recommendations</p>
                     </div>
@@ -118,10 +127,6 @@
                             <span class="stat-label">Liked Songs</span>
                             <span class="stat-value" id="likedCount">0</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Accepted Songs</span>
-                            <span class="stat-value" id="acceptedCount">0</span>
-                        </div>
                     </div>
                     
                     <div class="profile-likes">
@@ -148,7 +153,16 @@
                 </div>
                 
                 <div class="recommendations-list" id="recommendationsList">
-                    <p class="section-label">Recommendations</p>
+                    <div class="recommendations-header">
+                        <p class="section-label">Recommendations</p>
+                        <div class="filter-buttons" id="filterButtons">
+                            <button class="filter-btn active" data-filter="top">Top</button>
+                            <button class="filter-btn" data-filter="genre">Genre</button>
+                            <button class="filter-btn" data-filter="artist">Artist</button>
+                            <button class="filter-btn" data-filter="energy">Energy</button>
+                            <button class="filter-btn" data-filter="tempo">Tempo</button>
+                        </div>
+                    </div>
                     <div class="empty-state">
                         <p>Choose a song from the Discover section to get recommendations</p>
                     </div>
