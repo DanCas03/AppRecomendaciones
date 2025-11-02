@@ -1809,7 +1809,6 @@ async function cargarSurpriseMe() {
     try {
         // Obtener canciones liked del usuario
         const likesRes = await fetch(`${API_BASE}/api/canciones/random`, {
-            headers: { 'x-username': state.usuarioActual.nombre_usuario }
         });
         if (!likesRes.ok) {
             throw new Error('Error al obtener canciones sorpresa');
